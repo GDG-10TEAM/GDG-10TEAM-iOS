@@ -9,6 +9,8 @@ import Foundation
 
 struct StoryBoard {
     static let main = "Main"
+    static let calendar = "Calendar"
+    static let taskEdit = "TaskEdit"
 }
 
 

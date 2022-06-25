@@ -20,7 +20,10 @@ class RootTabBarController: UITabBarController {
         mainViewController.title = homeTabbarItem.title
         mainViewController.tabBarItem = UITabBarItem(title: nil, image: homeTabbarItem.image, tag: 0)
         
-        let calenderViewController = CalendarViewController()
+        
+        let calendarStoryboard = UIStoryboard(name: StoryBoard.calendar, bundle: .main)
+        let calenderViewController = calendarStoryboard
+            .instantiateViewController(withIdentifier: CalendarViewController.className)
         let calendarTabbarItem = TabbarItem.calendar
         calenderViewController.title = calendarTabbarItem.title
         calenderViewController.tabBarItem = UITabBarItem(title: nil, image: calendarTabbarItem.image, tag: 1)

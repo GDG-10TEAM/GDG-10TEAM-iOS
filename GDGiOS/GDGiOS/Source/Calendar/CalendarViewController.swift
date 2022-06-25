@@ -1,9 +1,8 @@
 import UIKit
 
-class CalendarViewController: UIViewController {
+final class CalendarViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .orange
     }
 }
