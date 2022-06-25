@@ -33,7 +33,7 @@ class TableViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        
+        tableView.separatorStyle = .none
         tableView.register(TaskTableViewCell.self, forCellReuseIdentifier: "taskCell")
         tableView.dataSource = self
         tableView.delegate = self
@@ -43,9 +43,16 @@ class TableViewController: UIViewController {
 
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 110
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                print("delete: ", indexPath.row)
+//                dummyData.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+    }
 }
 
 extension TableViewController: UITableViewDataSource {
@@ -100,29 +107,27 @@ class TaskTableViewCell: UITableViewCell {
         shadowView.addShadow(offset: CGSize(width: 0, height: 0), opacity: 0.5, radius: 6.0)
         
         addSubview(contentsView)
-        contentsView.backgroundColor = .green
         contentsView.snp.makeConstraints { make in
             make.edges.equalTo(shadowView).inset(-4)
         }
         contentsView.layer.cornerRadius = 10
         contentsView.layer.masksToBounds = true
         
-        contentsView.addSubview(thumbnailImage)
-        thumbnailImage.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(6)
-            make.width.height.equalTo(50)
-        }
-        
         let descriptionStackView = makeStackView(views: [descriptionLabel, timeLabel], axis: .horizontal)
-        
+        timeLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         let textContainerView = makeStackView(views: [descriptionStackView, titleLabel], axis: .vertical)
-        contentsView.addSubview(textContainerView)
-        textContainerView.snp.makeConstraints { make in
-            make.left.equalTo(thumbnailImage.snp.right).offset(16)
-            make.center.equalToSuperview()
+        let contentsInnerStack = makeStackView(views: [thumbnailImage, textContainerView], axis: .horizontal)
+        contentsInnerStack.spacing = 16
+        
+        contentsView.addSubview(contentsInnerStack)
+        contentsInnerStack.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(16)
+            make.centerY.equalToSuperview().offset(-10)
         }
         
+        thumbnailImage.snp.makeConstraints { make in
+            make.width.height.equalTo(42)
+        }
         
         contentsView.addSubview(progressBar)
         progressBar.snp.makeConstraints { make in
@@ -130,8 +135,6 @@ class TaskTableViewCell: UITableViewCell {
             make.height.equalTo(20)
         }
     }
-    
-    
     
     private func makeStackView(views: [UIView], axis: NSLayoutConstraint.Axis) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
@@ -143,6 +146,7 @@ class TaskTableViewCell: UITableViewCell {
     
     private let contentsView: UIView = {
         let view = UIView()
+        view.backgroundColor = .white
         return view
     }()
     
@@ -160,19 +164,22 @@ class TaskTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "title"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "0번째 실행중이예요:)"
+        label.font = UIFont.systemFont(ofSize: 11)
         return label
     }()
     
     private let timeLabel: UILabel = {
         let label = UILabel()
         label.text = "1시간 소요"
-        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 11)
+        label.textAlignment = .right
         return label
     }()
 }
