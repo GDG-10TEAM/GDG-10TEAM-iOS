@@ -179,8 +179,13 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let photoVC = PhotoViewController()
-        self.navigationController?.pushViewController(photoVC, animated: true)
+        if let sectionType = SectionType(rawValue: indexPath.section),
+              let sectionData = dummy[sectionType]  {
+            let photoVC = PhotoViewController()
+            let data = sectionData[indexPath.row]
+            photoVC.taskTitle = data.title
+            self.navigationController?.pushViewController(photoVC, animated: true)
+        }
     }
 }
 

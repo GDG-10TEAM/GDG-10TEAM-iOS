@@ -35,6 +35,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     var tagLabel = UILabel()
     
     var nextPageBtn = UIButton()
+    var taskTitle = ""
     
     //MARK: Life Cycle
     override func viewDidLoad() {
@@ -54,7 +55,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        titleLabel.text = taskTitle
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -176,7 +177,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
         }
         
         timeLabel = UILabel().then{
-            $0.text = "할일 서브."
+            $0.text = "남았어요"
             $0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
             $0.textColor = .black
         }
@@ -250,6 +251,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     @objc func clickedNextPageBtn(_ sender: UIButton){
         //TODO: 다음 페이지로
         let completedVC = CompletedTaskViewController()
+        completedVC.taskTitle = taskTitle
         self.navigationController?.pushViewController(completedVC, animated: true)
     }
     

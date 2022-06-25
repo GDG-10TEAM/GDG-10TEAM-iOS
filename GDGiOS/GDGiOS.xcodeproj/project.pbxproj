@@ -41,6 +41,8 @@
 		AA35F20A2867AB5E0068DA61 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F2092867AB5E0068DA61 /* SettingViewController.swift */; };
 		AA35F20C2867AB700068DA61 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F20B2867AB700068DA61 /* Setting.storyboard */; };
 		C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */; };
+		C3234B482867BA1E0029A645 /* img-splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = C3234B472867BA1E0029A645 /* img-splash.gif */; };
+		C3234B4A2867BA6E0029A645 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B492867BA6E0029A645 /* SplashViewController.swift */; };
 		C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC082866EBCC0055B342 /* AppDelegate.swift */; };
 		C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */; };
 		C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */; };
@@ -92,6 +94,8 @@
 		AA35F2092867AB5E0068DA61 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AA35F20B2867AB700068DA61 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskViewController.swift; sourceTree = "<group>"; };
+		C3234B472867BA1E0029A645 /* img-splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "img-splash.gif"; sourceTree = "<group>"; };
+		C3234B492867BA6E0029A645 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 				C3B2FC242866F3990055B342 /* Main */,
 				C3B2FC132866EBCD0055B342 /* LaunchScreen.storyboard */,
 				C3B2FC212866EF4D0055B342 /* BaseViewController.swift */,
+				C3234B492867BA6E0029A645 /* SplashViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 		C3B2FC1D2866EDF80055B342 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C3234B472867BA1E0029A645 /* img-splash.gif */,
 				98AD08512867A20700FD4999 /* img-home.gif */,
 				AA35F1E7286758960068DA61 /* Fonts */,
 				C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */,
@@ -390,6 +396,7 @@
 			files = (
 				AA35F1D1286716B00068DA61 /* Calendar.storyboard in Resources */,
 				AA35F205286795CE0068DA61 /* Edit.storyboard in Resources */,
+				C3234B482867BA1E0029A645 /* img-splash.gif in Resources */,
 				C3B2FC152866EBCD0055B342 /* LaunchScreen.storyboard in Resources */,
 				AA35F1EE286758C30068DA61 /* NEXT ART_Light.otf in Resources */,
 				AA35F1DC286716F70068DA61 /* CustomCalendarCell.xib in Resources */,
@@ -465,6 +472,7 @@
 				98AD084A2867556500FD4999 /* ProgressBarView.swift in Sources */,
 				C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */,
 				C3B2FC5328672C9E0055B342 /* Color.swift in Sources */,
+				C3234B4A2867BA6E0029A645 /* SplashViewController.swift in Sources */,
 				980638362866F8DB00765310 /* RootTabBarController.swift in Sources */,
 				AA35F20328678CB30068DA61 /* EditModel.swift in Sources */,
 				AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */,

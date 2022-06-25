@@ -16,6 +16,20 @@ class CompletedTaskViewController: UIViewController{
     var cameraView = UIImageView()
     var cameraImg = UIImageView()
     var naviView = UIView()
+    var taskTitle = ""
+    
+    let labelArr = [
+        "2022년 1월 3일 완료",
+        "2022년 2월 22일 완료",
+        "2022년 4월 7일 완료"
+    ]
+    
+    let imgArr = [
+        UIImage(named: "dummy_clean")!,
+        UIImage(named: "dummy_wash")!,
+        UIImage(named: "dummy_fridge")!
+    ] as [Any]
+    
     
     //MARK: Life Cycle
     override func viewDidLoad() {
@@ -34,6 +48,8 @@ class CompletedTaskViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -107,7 +123,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return labelArr.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -135,7 +151,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
             
             // 할일 제목
             titleLabel = UILabel().then{
-                $0.text = "할일 제목입니다."
+                $0.text = taskTitle
                 $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
                 $0.textColor = .black
             }
@@ -148,7 +164,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
             }
             
             timeLabel = UILabel().then{
-                $0.text = "할일 서브."
+                $0.text = "2시간 소요"
                 $0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
                 $0.textColor = .black
             }
@@ -171,7 +187,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
             let dateLabel = UILabel().then{
                 $0.font = UIFont.systemFont(ofSize: 12)
                 $0.textColor = .black
-                $0.text = "2022년 2월 3일 완료"
+                $0.text = labelArr[indexPath.row - 1]
                 $0.textAlignment = .center
             }
             
@@ -210,6 +226,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
                 $0.layer.borderWidth = 1
                 $0.layer.cornerRadius = 10
                 $0.clipsToBounds = true
+                $0.image = imgArr[indexPath.row - 1] as! UIImage
             }
             cell.addSubview(cameraView)
             cameraView.snp.makeConstraints {
