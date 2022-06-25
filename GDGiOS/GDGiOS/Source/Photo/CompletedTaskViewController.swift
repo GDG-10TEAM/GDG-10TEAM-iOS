@@ -182,6 +182,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
                 $0.layer.borderColor = UIColor.gray.cgColor
                 $0.layer.borderWidth = 1
                 $0.layer.cornerRadius = 10
+                $0.clipsToBounds = true
             }
             cell.addSubview(cameraView)
             cameraView.snp.makeConstraints {
