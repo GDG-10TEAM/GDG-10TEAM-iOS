@@ -15,6 +15,8 @@ class CompletedTaskViewController: UIViewController{
     var timeLabel = UILabel()
     var cameraView = UIImageView()
     var cameraImg = UIImageView()
+    var naviView = UIView()
+    
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +41,38 @@ class CompletedTaskViewController: UIViewController{
     }
     //MARK: UI
     func setNaviBar(){
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.tintColor = .darkGray
-        self.navigationItem.title = "테스크 완료기록"
         self.view.backgroundColor = .white
-        let backBtn = UIBarButtonItem(image: UIImage(named: "icon_back"), style: .plain, target: self, action: #selector(clickedBackBtn))
-        backBtn.title = ""
-        self.navigationItem.leftBarButtonItem = backBtn
+        naviView = UIView().then{
+            $0.backgroundColor = .white
+        }
+        self.view.addSubview(naviView)
+        naviView.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.height.equalTo(50)
+        }
+        let naviTitle = UILabel().then{
+            $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            $0.textColor = .black
+            $0.text = "테스크 완료기록"
+        }
+        naviView.addSubview(naviTitle)
+        naviTitle.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
+        let naviBtn = UIButton().then{
+            $0.setImage(UIImage(named: "icon_back"), for: .normal)
+        }
+        naviView.addSubview(naviBtn)
+        naviBtn.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(24)
+            $0.top.equalToSuperview().inset(19)
+            $0.height.equalTo(12)
+            $0.width.equalTo(6)
+        }
+        naviBtn.addTarget(self, action: #selector(clickedBackBtn), for: .touchUpInside)
     }
     
     func setTableView(){
@@ -58,7 +85,7 @@ class CompletedTaskViewController: UIViewController{
         tableView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.top.equalToSuperview()
+            $0.top.equalTo(naviView.snp.bottom)
             $0.bottom.equalToSuperview()
         }
         self.tableView.delegate = self

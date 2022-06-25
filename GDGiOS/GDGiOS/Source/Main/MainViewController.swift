@@ -177,6 +177,11 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return SectionType(rawValue: section)?.title
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let photoVC = PhotoViewController()
+        self.navigationController?.pushViewController(photoVC, animated: true)
+    }
 }
 
 final class HomeTitleCell: UITableViewCell {
