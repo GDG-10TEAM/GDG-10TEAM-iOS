@@ -13,9 +13,12 @@
 		C3B2FC102866EBCC0055B342 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B2FC0E2866EBCC0055B342 /* Main.storyboard */; };
 		C3B2FC122866EBCD0055B342 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B2FC112866EBCD0055B342 /* Assets.xcassets */; };
 		C3B2FC152866EBCD0055B342 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B2FC132866EBCD0055B342 /* LaunchScreen.storyboard */; };
+		C83A224F9DAD45272C04E21D /* Pods_GDGiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48115E6C682F2F0C8822D80B /* Pods_GDGiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0274005A72C6491046AF38FF /* Pods-GDGiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDGiOS.debug.xcconfig"; path = "Target Support Files/Pods-GDGiOS/Pods-GDGiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		48115E6C682F2F0C8822D80B /* Pods_GDGiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GDGiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		C3B2FC112866EBCD0055B342 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3B2FC142866EBCD0055B342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3B2FC162866EBCD0055B342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6ADB7E4CCC10C6EFF766CAE /* Pods-GDGiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDGiOS.release.xcconfig"; path = "Target Support Files/Pods-GDGiOS/Pods-GDGiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83A224F9DAD45272C04E21D /* Pods_GDGiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C23A7E42EF090CB84846D7E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0274005A72C6491046AF38FF /* Pods-GDGiOS.debug.xcconfig */,
+				D6ADB7E4CCC10C6EFF766CAE /* Pods-GDGiOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8F89B750E5C52B1C15D3B84B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				48115E6C682F2F0C8822D80B /* Pods_GDGiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C3B2FBFC2866EBCC0055B342 = {
 			isa = PBXGroup;
 			children = (
 				C3B2FC072866EBCC0055B342 /* GDGiOS */,
 				C3B2FC062866EBCC0055B342 /* Products */,
+				3C23A7E42EF090CB84846D7E /* Pods */,
+				8F89B750E5C52B1C15D3B84B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3B2FC192866EBCD0055B342 /* Build configuration list for PBXNativeTarget "GDGiOS" */;
 			buildPhases = (
+				F950D5F9652ED6F4EB8E606F /* [CP] Check Pods Manifest.lock */,
 				C3B2FC012866EBCC0055B342 /* Sources */,
 				C3B2FC022866EBCC0055B342 /* Frameworks */,
 				C3B2FC032866EBCC0055B342 /* Resources */,
+				988525F88CCEF0098E0C7AED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		988525F88CCEF0098E0C7AED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GDGiOS/Pods-GDGiOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GDGiOS/Pods-GDGiOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GDGiOS/Pods-GDGiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F950D5F9652ED6F4EB8E606F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GDGiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C3B2FC012866EBCC0055B342 /* Sources */ = {
@@ -284,6 +353,7 @@
 		};
 		C3B2FC1A2866EBCD0055B342 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0274005A72C6491046AF38FF /* Pods-GDGiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +367,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,6 +383,7 @@
 		};
 		C3B2FC1B2866EBCD0055B342 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6ADB7E4CCC10C6EFF766CAE /* Pods-GDGiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -325,6 +397,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
