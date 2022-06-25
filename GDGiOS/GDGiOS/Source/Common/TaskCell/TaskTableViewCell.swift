@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import SwiftUI
 
 
 fileprivate struct DummyModel {
@@ -172,6 +173,7 @@ class TaskTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "0번째 실행중이예요:)"
         label.font = UIFont.systemFont(ofSize: 11)
+        label.textColor = .darkGray
         return label
     }()
     
@@ -180,6 +182,7 @@ class TaskTableViewCell: UITableViewCell {
         label.text = "1시간 소요"
         label.font = UIFont.systemFont(ofSize: 11)
         label.textAlignment = .right
+        label.textColor = .darkGray
         return label
     }()
 }
