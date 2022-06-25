@@ -86,6 +86,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = UITableViewCell()
+            cell.selectionStyle = .none
             // 태그 라벨
             tagLabel = UILabel().then{
                 $0.layer.cornerRadius = 10
@@ -133,6 +134,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
             return cell
         }else{
             let cell = UITableViewCell()
+            cell.selectionStyle = .none
             
             // 날짜 뷰
             let leftDivideView = UIView().then{
