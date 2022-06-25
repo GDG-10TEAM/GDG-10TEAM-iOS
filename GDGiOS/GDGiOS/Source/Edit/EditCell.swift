@@ -39,6 +39,8 @@ final class EditCell: UITableViewCell {
         let color = cellData.calendarTaskModel.color
 
         self.footerView.backgroundColor = color
+        
+        self.titleImageView.image = cellData.calendarTaskModel.image
     }
     
     @IBAction func editAction(_ sender: Any) {

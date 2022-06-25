@@ -97,7 +97,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zg2-Cf-Tli">
                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="154"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cha_03_03" translatesAutoresizingMaskIntoConstraints="NO" id="alM-ij-v6X">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cha_03_02" translatesAutoresizingMaskIntoConstraints="NO" id="alM-ij-v6X">
                                                         <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="112" id="9JL-z5-fSZ"/>
@@ -249,7 +249,7 @@
     <resources>
         <image name="cha_01_02" width="290" height="290"/>
         <image name="cha_02_02" width="290" height="290"/>
-        <image name="cha_03_03" width="290" height="290"/>
+        <image name="cha_03_02" width="290" height="290"/>
         <image name="cha_04_02" width="290" height="290"/>
         <image name="cha_05_02" width="290" height="290"/>
         <systemColor name="systemBackgroundColor">
