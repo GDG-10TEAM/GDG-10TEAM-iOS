@@ -12,6 +12,7 @@
 		9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806383B2866FE6F00765310 /* TabbarItem.swift */; };
 		980638412867299700765310 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980638402867299700765310 /* TaskTableViewCell.swift */; };
 		9868D66B2867B58A005D6CDB /* HomeTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9868D66A2867B58A005D6CDB /* HomeTitleCell.swift */; };
+		9894AB4B2867BEB1007AE286 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894AB4A2867BEB0007AE286 /* DetailViewController.swift */; };
 		98AD084A2867556500FD4999 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD08492867556500FD4999 /* ProgressBarView.swift */; };
 		98AD084C28676D8200FD4999 /* RestTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD084B28676D8200FD4999 /* RestTimeLabel.swift */; };
 		98AD084E286789F500FD4999 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD084D286789F500FD4999 /* UITableViewCell+Extension.swift */; };
@@ -64,6 +65,7 @@
 		9806383B2866FE6F00765310 /* TabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItem.swift; sourceTree = "<group>"; };
 		980638402867299700765310 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		9868D66A2867B58A005D6CDB /* HomeTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTitleCell.swift; sourceTree = "<group>"; };
+		9894AB4A2867BEB0007AE286 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		98AD08492867556500FD4999 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		98AD084B28676D8200FD4999 /* RestTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimeLabel.swift; sourceTree = "<group>"; };
 		98AD084D286789F500FD4999 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -174,6 +176,14 @@
 				9868D66A2867B58A005D6CDB /* HomeTitleCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9894AB492867BE94007AE286 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9894AB4A2867BEB0007AE286 /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		98AD08482867552400FD4999 /* TaskCell */ = {
@@ -289,6 +299,7 @@
 		C3B2FC1C2866EDF10055B342 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9894AB492867BE94007AE286 /* Detail */,
 				AA35F2082867AB520068DA61 /* Setting */,
 				AA35F1F92867751D0068DA61 /* Edit */,
 				C3B2FC4D286729CB0055B342 /* Photo */,
@@ -486,6 +497,7 @@
 				980638392866FBA500765310 /* CalendarViewController.swift in Sources */,
 				C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */,
 				AA35F1D9286716F70068DA61 /* CustomCalendarViewModel.swift in Sources */,
+				9894AB4B2867BEB1007AE286 /* DetailViewController.swift in Sources */,
 				AA35F1F828676BE90068DA61 /* CalendarTaskModel.swift in Sources */,
 				AA35F201286778CB0068DA61 /* EditCell.swift in Sources */,
 				AA35F1E1286732B60068DA61 /* TaskEditViewController.swift in Sources */,
