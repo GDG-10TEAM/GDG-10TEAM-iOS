@@ -94,9 +94,9 @@
 		C3B2FC1C2866EDF10055B342 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C3B2FC242866F3990055B342 /* Main */,
+				C3B2FC232866F38B0055B342 /* Network */,
 				C3B2FC132866EBCD0055B342 /* LaunchScreen.storyboard */,
-				C3B2FC0E2866EBCC0055B342 /* Main.storyboard */,
-				C3B2FC1E2866EE050055B342 /* Controller */,
 				C3B2FC212866EF4D0055B342 /* BaseViewController.swift */,
 			);
 			path = Source;
@@ -113,12 +113,20 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		C3B2FC1E2866EE050055B342 /* Controller */ = {
+		C3B2FC232866F38B0055B342 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C3B2FC242866F3990055B342 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */,
+				C3B2FC0E2866EBCC0055B342 /* Main.storyboard */,
 			);
-			path = Controller;
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
