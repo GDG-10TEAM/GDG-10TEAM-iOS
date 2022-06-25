@@ -35,6 +35,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     var tagLabel = UILabel()
     
     var nextPageBtn = UIButton()
+    var taskTitle = ""
     
     //MARK: Life Cycle
     override func viewDidLoad() {
@@ -54,6 +55,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        titleLabel.text = taskTitle
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,13 +64,38 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     
     //MARK: UI
     func setNaviBar(){
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.tintColor = .darkGray
-        self.title = "테스크 완료하기"
         self.view.backgroundColor = .white
-        let backBtn = UIBarButtonItem(image: UIImage(named: "icon_back"), style: .plain, target: self, action: #selector(clickedBackBtn))
-        backBtn.title = ""
-        self.navigationItem.leftBarButtonItem = backBtn
+        naviView = UIView().then{
+            $0.backgroundColor = .white
+        }
+        self.view.addSubview(naviView)
+        naviView.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.height.equalTo(50)
+        }
+        let naviTitle = UILabel().then{
+            $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            $0.textColor = .black
+            $0.text = "테스크 완료하기"
+        }
+        naviView.addSubview(naviTitle)
+        naviTitle.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
+        let naviBtn = UIButton().then{
+            $0.setImage(UIImage(named: "icon_back"), for: .normal)
+        }
+        naviView.addSubview(naviBtn)
+        naviBtn.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(24)
+            $0.top.equalToSuperview().inset(19)
+            $0.height.equalTo(12)
+            $0.width.equalTo(6)
+        }
+        naviBtn.addTarget(self, action: #selector(clickedBackBtn), for: .touchUpInside)
     }
     
     func initUIComponent(){
@@ -85,7 +112,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
         
         self.view.addSubview(tagLabel)
         tagLabel.snp.makeConstraints{
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30)
+            $0.top.equalTo(naviView.snp.bottom).offset(30)
             $0.leading.equalTo(22)
             $0.height.equalTo(21)
             $0.width.equalTo(40)
@@ -150,7 +177,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
         }
         
         timeLabel = UILabel().then{
-            $0.text = "할일 서브."
+            $0.text = "남았어요"
             $0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
             $0.textColor = .black
         }
@@ -224,6 +251,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     @objc func clickedNextPageBtn(_ sender: UIButton){
         //TODO: 다음 페이지로
         let completedVC = CompletedTaskViewController()
+        completedVC.taskTitle = taskTitle
         self.navigationController?.pushViewController(completedVC, animated: true)
     }
     

@@ -15,6 +15,22 @@ class CompletedTaskViewController: UIViewController{
     var timeLabel = UILabel()
     var cameraView = UIImageView()
     var cameraImg = UIImageView()
+    var naviView = UIView()
+    var taskTitle = ""
+    
+    let labelArr = [
+        "2022년 1월 3일 완료",
+        "2022년 2월 22일 완료",
+        "2022년 4월 7일 완료"
+    ]
+    
+    let imgArr = [
+        UIImage(named: "dummy_clean")!,
+        UIImage(named: "dummy_wash")!,
+        UIImage(named: "dummy_fridge")!
+    ] as [Any]
+    
+    
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +48,8 @@ class CompletedTaskViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,13 +57,38 @@ class CompletedTaskViewController: UIViewController{
     }
     //MARK: UI
     func setNaviBar(){
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.tintColor = .darkGray
-        self.navigationItem.title = "테스크 완료기록"
         self.view.backgroundColor = .white
-        let backBtn = UIBarButtonItem(image: UIImage(named: "icon_back"), style: .plain, target: self, action: #selector(clickedBackBtn))
-        backBtn.title = ""
-        self.navigationItem.leftBarButtonItem = backBtn
+        naviView = UIView().then{
+            $0.backgroundColor = .white
+        }
+        self.view.addSubview(naviView)
+        naviView.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.height.equalTo(50)
+        }
+        let naviTitle = UILabel().then{
+            $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            $0.textColor = .black
+            $0.text = "테스크 완료기록"
+        }
+        naviView.addSubview(naviTitle)
+        naviTitle.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
+        let naviBtn = UIButton().then{
+            $0.setImage(UIImage(named: "icon_back"), for: .normal)
+        }
+        naviView.addSubview(naviBtn)
+        naviBtn.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(24)
+            $0.top.equalToSuperview().inset(19)
+            $0.height.equalTo(12)
+            $0.width.equalTo(6)
+        }
+        naviBtn.addTarget(self, action: #selector(clickedBackBtn), for: .touchUpInside)
     }
     
     func setTableView(){
@@ -58,7 +101,7 @@ class CompletedTaskViewController: UIViewController{
         tableView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.top.equalToSuperview()
+            $0.top.equalTo(naviView.snp.bottom)
             $0.bottom.equalToSuperview()
         }
         self.tableView.delegate = self
@@ -80,7 +123,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return labelArr.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,7 +151,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
             
             // 할일 제목
             titleLabel = UILabel().then{
-                $0.text = "할일 제목입니다."
+                $0.text = taskTitle
                 $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
                 $0.textColor = .black
             }
@@ -121,7 +164,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
             }
             
             timeLabel = UILabel().then{
-                $0.text = "할일 서브."
+                $0.text = "2시간 소요"
                 $0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
                 $0.textColor = .black
             }
@@ -144,7 +187,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
             let dateLabel = UILabel().then{
                 $0.font = UIFont.systemFont(ofSize: 12)
                 $0.textColor = .black
-                $0.text = "2022년 2월 3일 완료"
+                $0.text = labelArr[indexPath.row - 1]
                 $0.textAlignment = .center
             }
             
@@ -183,6 +226,7 @@ extension CompletedTaskViewController: UITableViewDelegate, UITableViewDataSourc
                 $0.layer.borderWidth = 1
                 $0.layer.cornerRadius = 10
                 $0.clipsToBounds = true
+                $0.image = imgArr[indexPath.row - 1] as! UIImage
             }
             cell.addSubview(cameraView)
             cameraView.snp.makeConstraints {
