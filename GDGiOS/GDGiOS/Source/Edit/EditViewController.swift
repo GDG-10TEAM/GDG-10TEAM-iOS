@@ -139,7 +139,7 @@ final class EditViewController: BaseViewController {
         let dataSource = RxTableViewSectionedAnimatedDataSource<EditCellDataSource> {
             dataSource, tableView, indexPath, item in
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: EditCell.identifier,
+                withIdentifier: "EditCell",
                 for: indexPath
             ) as? EditCell else { return UITableViewCell() }
             

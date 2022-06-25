@@ -25,8 +25,6 @@ final class EditCell: UITableViewCell {
     
     weak var delegate: EditCellDelegate?
     
-    static let identifier = "EditCell"
-    
     func display(cellData: EditCellModel) {
         self.mainView.layer.cornerRadius = 10
         self.mainView.layer.masksToBounds = false
