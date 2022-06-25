@@ -42,7 +42,5 @@ final class CalendarDetailViewController: BaseViewController {
         
         let dayString = dayFormatter.string(from: self.currentDay)
         self.dayLabel.text = dayString
-        
-        
     }
 }

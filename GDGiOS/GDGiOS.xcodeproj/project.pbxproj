@@ -31,6 +31,10 @@
 		AA35F1F42867636F0068DA61 /* CalendarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1F32867636F0068DA61 /* CalendarDetailViewController.swift */; };
 		AA35F1F6286763750068DA61 /* CalendarDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1F5286763750068DA61 /* CalendarDetail.storyboard */; };
 		AA35F1F828676BE90068DA61 /* CalendarTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1F728676BE90068DA61 /* CalendarTaskModel.swift */; };
+		AA35F1FB286775290068DA61 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1FA286775290068DA61 /* EditViewController.swift */; };
+		AA35F201286778CB0068DA61 /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F200286778CB0068DA61 /* EditCell.swift */; };
+		AA35F20328678CB30068DA61 /* EditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F20228678CB30068DA61 /* EditModel.swift */; };
+		AA35F205286795CE0068DA61 /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F204286795CE0068DA61 /* Edit.storyboard */; };
 		C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC082866EBCC0055B342 /* AppDelegate.swift */; };
 		C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */; };
 		C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */; };
@@ -72,6 +76,10 @@
 		AA35F1F32867636F0068DA61 /* CalendarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailViewController.swift; sourceTree = "<group>"; };
 		AA35F1F5286763750068DA61 /* CalendarDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarDetail.storyboard; sourceTree = "<group>"; };
 		AA35F1F728676BE90068DA61 /* CalendarTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTaskModel.swift; sourceTree = "<group>"; };
+		AA35F1FA286775290068DA61 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		AA35F200286778CB0068DA61 /* EditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCell.swift; sourceTree = "<group>"; };
+		AA35F20228678CB30068DA61 /* EditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModel.swift; sourceTree = "<group>"; };
+		AA35F204286795CE0068DA61 /* Edit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +214,17 @@
 			path = CalendarDetail;
 			sourceTree = "<group>";
 		};
+		AA35F1F92867751D0068DA61 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				AA35F1FA286775290068DA61 /* EditViewController.swift */,
+				AA35F204286795CE0068DA61 /* Edit.storyboard */,
+				AA35F200286778CB0068DA61 /* EditCell.swift */,
+				AA35F20228678CB30068DA61 /* EditModel.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
 		C3B2FBFC2866EBCC0055B342 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +256,7 @@
 		C3B2FC1C2866EDF10055B342 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AA35F1F92867751D0068DA61 /* Edit */,
 				C3B2FC4D286729CB0055B342 /* Photo */,
 				9806383F286727D200765310 /* Common */,
 				AA35F1DF286732980068DA61 /* TaskEditView */,
@@ -343,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA35F1D1286716B00068DA61 /* Calendar.storyboard in Resources */,
+				AA35F205286795CE0068DA61 /* Edit.storyboard in Resources */,
 				C3B2FC152866EBCD0055B342 /* LaunchScreen.storyboard in Resources */,
 				AA35F1EE286758C30068DA61 /* NEXT ART_Light.otf in Resources */,
 				AA35F1DC286716F70068DA61 /* CustomCalendarCell.xib in Resources */,
@@ -415,6 +436,7 @@
 				C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */,
 				C3B2FC5328672C9E0055B342 /* Color.swift in Sources */,
 				980638362866F8DB00765310 /* RootTabBarController.swift in Sources */,
+				AA35F20328678CB30068DA61 /* EditModel.swift in Sources */,
 				AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */,
 				AA35F1CF28670F810068DA61 /* Network.swift in Sources */,
 				AA35F1F42867636F0068DA61 /* CalendarDetailViewController.swift in Sources */,
@@ -422,7 +444,9 @@
 				980638392866FBA500765310 /* CalendarViewController.swift in Sources */,
 				AA35F1D9286716F70068DA61 /* CustomCalendarViewModel.swift in Sources */,
 				AA35F1F828676BE90068DA61 /* CalendarTaskModel.swift in Sources */,
+				AA35F201286778CB0068DA61 /* EditCell.swift in Sources */,
 				AA35F1E1286732B60068DA61 /* TaskEditViewController.swift in Sources */,
+				AA35F1FB286775290068DA61 /* EditViewController.swift in Sources */,
 				9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */,
 				AA35F1DE286716F70068DA61 /* CustomCalendarCell.swift in Sources */,
 				C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */,
