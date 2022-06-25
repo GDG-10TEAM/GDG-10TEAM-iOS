@@ -13,6 +13,7 @@ import RxDataSources
 
 protocol CustomCalenderViewDelegate: AnyObject {
     func didSelectedDate(date: Date)
+    func taskCount(count: Int)
 }
 
 @IBDesignable
@@ -63,6 +64,7 @@ final class CustomCalendarView: UIView {
         self._bindSelectedDate()
         self._bindBeforeMonthText()
         self._bindNextMonthText()
+        self._bindTaskCount()
     }
     
     private func _configureBase() {
@@ -133,6 +135,15 @@ final class CustomCalendarView: UIView {
     private func _bindNextMonthText() {
         self.viewModel.output.nextMonthText
             .drive(self.nextMonthLabel.rx.text)
+            .disposed(by: disposeBag)
+    }
+    
+    private func _bindTaskCount() {
+        self.viewModel.output.taskCount
+            .compactMap { $0 }
+            .drive(onNext: { [weak self] count in
+                self?.delegate?.taskCount(count: count)
+            })
             .disposed(by: disposeBag)
     }
 }

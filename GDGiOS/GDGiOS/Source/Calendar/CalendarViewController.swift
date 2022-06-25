@@ -30,6 +30,7 @@ final class CalendarViewController: BaseViewController {
         UINavigationBar.appearance().titleTextAttributes = calendarTitleAttrs
         
         self.calendarView.delegate = self
+        self.taskLabel.text = "\(Int.random(in: 80...110))개 남았어요!"
     }
 }
 
@@ -37,5 +38,9 @@ final class CalendarViewController: BaseViewController {
 extension CalendarViewController: CustomCalenderViewDelegate {
     func didSelectedDate(date: Date) {
         CalendarDetailViewController.calendarDetailInitializer(viewController: self, currentDay: date)
+    }
+    
+    func taskCount(count: Int) {
+        self.taskLabel.text = "\(count)개 남았어요!"
     }
 }
