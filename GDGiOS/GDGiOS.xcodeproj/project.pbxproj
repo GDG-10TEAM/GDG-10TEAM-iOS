@@ -31,6 +31,7 @@
 		AA35F1EF286758C50068DA61 /* NEXT ART_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EC286758AD0068DA61 /* NEXT ART_Regular.otf */; };
 		AA35F1F0286758C70068DA61 /* NEXT ART_SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EB286758AD0068DA61 /* NEXT ART_SemiBold.otf */; };
 		AA35F1F1286758C90068DA61 /* NEXT ART_Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EA286758AD0068DA61 /* NEXT ART_Thin.otf */; };
+		C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */; };
 		AA35F1F42867636F0068DA61 /* CalendarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1F32867636F0068DA61 /* CalendarDetailViewController.swift */; };
 		AA35F1F6286763750068DA61 /* CalendarDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1F5286763750068DA61 /* CalendarDetail.storyboard */; };
 		AA35F1F828676BE90068DA61 /* CalendarTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1F728676BE90068DA61 /* CalendarTaskModel.swift */; };
@@ -79,6 +80,7 @@
 		AA35F1EA286758AD0068DA61 /* NEXT ART_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Thin.otf"; sourceTree = "<group>"; };
 		AA35F1EB286758AD0068DA61 /* NEXT ART_SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_SemiBold.otf"; sourceTree = "<group>"; };
 		AA35F1EC286758AD0068DA61 /* NEXT ART_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Regular.otf"; sourceTree = "<group>"; };
+		C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskViewController.swift; sourceTree = "<group>"; };
 		AA35F1F32867636F0068DA61 /* CalendarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailViewController.swift; sourceTree = "<group>"; };
 		AA35F1F5286763750068DA61 /* CalendarDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarDetail.storyboard; sourceTree = "<group>"; };
 		AA35F1F728676BE90068DA61 /* CalendarTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTaskModel.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			children = (
 				C3B2FC4E286729DE0055B342 /* PhotoViewController.swift */,
 				C3B2FC5028672A040055B342 /* TopTabBarView.swift */,
+				C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				AA35F1F42867636F0068DA61 /* CalendarDetailViewController.swift in Sources */,
 				C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */,
 				980638392866FBA500765310 /* CalendarViewController.swift in Sources */,
+				C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */,
 				AA35F1D9286716F70068DA61 /* CustomCalendarViewModel.swift in Sources */,
 				AA35F1F828676BE90068DA61 /* CalendarTaskModel.swift in Sources */,
 				AA35F201286778CB0068DA61 /* EditCell.swift in Sources */,
