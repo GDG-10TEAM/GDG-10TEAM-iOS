@@ -21,7 +21,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     var statusBarView: UIView!
 
     var naviView = UIView()
-//    let selectedStackView = TopTabBarView(selectedIndex: 0)
+    let selectedStackView = TopTabBarView(selectedIndex: 0)
     
     var titleLabel = UILabel()
     var timeLabel = UILabel()
@@ -110,16 +110,16 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     func initUIComponent(){
-//        self.view.addSubview(selectedStackView)
-//        selectedStackView.snp.makeConstraints {
-//            $0.top.equalTo(naviView.snp.bottom)
-//            $0.leading.trailing.equalToSuperview()
-//            $0.height.equalTo(42)
-//        }
-//
-//        for subview in selectedStackView.btnStackView.arrangedSubviews {
-//            (subview as! UIButton).addTarget(self, action: #selector(clickedTopTabBarBtn), for: .touchUpInside)
-//        }
+        self.view.addSubview(selectedStackView)
+        selectedStackView.snp.makeConstraints {
+            $0.top.equalTo(naviView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(42)
+        }
+
+        for subview in selectedStackView.btnStackView.arrangedSubviews {
+            (subview as! UIButton).addTarget(self, action: #selector(clickedTopTabBarBtn), for: .touchUpInside)
+        }
         // 태그 라벨
         tagLabel = UILabel().then{
             $0.layer.cornerRadius = 10
@@ -277,17 +277,9 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     @objc func clickedTopTabBarBtn(_ sender: UIButton){
-//        selectedStackView.changeView(selectedIndex: sender.tag)
-//        switch sender.tag {
-//        case 0: selectedStackView.changeView(selectedIndex: sender.tag)
-//        case 1: print("빨래")
-//        case 2: print("주방")
-//        case 3: print("화장실")
-//        case 4: print("공과금")
-//        default: break
-//            
-//        }
+        selectedStackView.changeView(selectedIndex: sender.tag)
     }
+    
     @objc func btnCaptureImageFromCamera(_ sender: UIButton){
         // 카메라의 사용 가능 여부 확인
         if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
