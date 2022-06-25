@@ -30,8 +30,6 @@ final class CalendarViewController: BaseViewController {
         UINavigationBar.appearance().titleTextAttributes = calendarTitleAttrs
         
         self.calendarView.delegate = self
-        
-        EditViewController.editInitializer(viewController: self)
     }
 }
 
