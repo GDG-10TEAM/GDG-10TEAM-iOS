@@ -30,6 +30,9 @@
 		C3B2FC152866EBCD0055B342 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3B2FC132866EBCD0055B342 /* LaunchScreen.storyboard */; };
 		C3B2FC202866EEF00055B342 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC1F2866EEF00055B342 /* Constant.swift */; };
 		C3B2FC222866EF4D0055B342 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC212866EF4D0055B342 /* BaseViewController.swift */; };
+		C3B2FC4F286729DE0055B342 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC4E286729DE0055B342 /* PhotoViewController.swift */; };
+		C3B2FC5128672A040055B342 /* TopTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC5028672A040055B342 /* TopTabBarView.swift */; };
+		C3B2FC5328672C9E0055B342 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC5228672C9E0055B342 /* Color.swift */; };
 		C83A224F9DAD45272C04E21D /* Pods_GDGiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48115E6C682F2F0C8822D80B /* Pods_GDGiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,9 @@
 		C3B2FC162866EBCD0055B342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3B2FC1F2866EEF00055B342 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C3B2FC212866EF4D0055B342 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C3B2FC4E286729DE0055B342 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		C3B2FC5028672A040055B342 /* TopTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarView.swift; sourceTree = "<group>"; };
+		C3B2FC5228672C9E0055B342 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D6ADB7E4CCC10C6EFF766CAE /* Pods-GDGiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDGiOS.release.xcconfig"; path = "Target Support Files/Pods-GDGiOS/Pods-GDGiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +188,7 @@
 		C3B2FC1C2866EDF10055B342 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C3B2FC4D286729CB0055B342 /* Photo */,
 				9806383F286727D200765310 /* Common */,
 				AA35F1DF286732980068DA61 /* TaskEditView */,
 				AA35F1CB28670F5B0068DA61 /* Network */,
@@ -201,6 +208,7 @@
 				C3B2FC082866EBCC0055B342 /* AppDelegate.swift */,
 				C3B2FC112866EBCD0055B342 /* Assets.xcassets */,
 				C3B2FC1F2866EEF00055B342 /* Constant.swift */,
+				C3B2FC5228672C9E0055B342 /* Color.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -212,6 +220,15 @@
 				C3B2FC0E2866EBCC0055B342 /* Main.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C3B2FC4D286729CB0055B342 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				C3B2FC4E286729DE0055B342 /* PhotoViewController.swift */,
+				C3B2FC5028672A040055B342 /* TopTabBarView.swift */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +350,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3B2FC5128672A040055B342 /* TopTabBarView.swift in Sources */,
 				C3B2FC222866EF4D0055B342 /* BaseViewController.swift in Sources */,
 				C3B2FC202866EEF00055B342 /* Constant.swift in Sources */,
 				980638412867299700765310 /* TaskTableViewCell.swift in Sources */,
 				C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */,
+				C3B2FC5328672C9E0055B342 /* Color.swift in Sources */,
 				980638362866F8DB00765310 /* RootTabBarController.swift in Sources */,
 				AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */,
 				AA35F1CF28670F810068DA61 /* Network.swift in Sources */,
@@ -347,6 +366,7 @@
 				9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */,
 				AA35F1DE286716F70068DA61 /* CustomCalendarCell.swift in Sources */,
 				C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */,
+				C3B2FC4F286729DE0055B342 /* PhotoViewController.swift in Sources */,
 				AA35F1DB286716F70068DA61 /* CustomCalendarModel.swift in Sources */,
 				AA35F1DA286716F70068DA61 /* CustomCalendarView.swift in Sources */,
 			);
