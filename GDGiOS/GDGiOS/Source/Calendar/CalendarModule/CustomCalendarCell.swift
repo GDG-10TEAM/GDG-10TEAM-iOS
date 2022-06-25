@@ -68,7 +68,7 @@ class CustomCalendarCell: UICollectionViewCell {
             self.dayLabel.textColor = .label
         }
         
-        self.addTaskView(calendarTaskList: [.clean, .wash, .kitchen, .payment])
+        self.addTaskView(calendarTaskList: [.clean, .wash, .kitchen, .friend, .payment])
     }
     
     private func addTaskView(calendarTaskList: [CalendarTaskModel]) {
@@ -81,6 +81,8 @@ class CustomCalendarCell: UICollectionViewCell {
                 view.backgroundColor = UIColor.mainGray
             case .kitchen:
                 view.backgroundColor = UIColor.mainRed
+            case .friend:
+                view.backgroundColor = UIColor.mainYellow
             case .payment:
                 view.backgroundColor = UIColor.mainGreen
             }

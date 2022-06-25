@@ -30,7 +30,7 @@ final class CustomCalendarView: UIView {
     override var bounds: CGRect {
         didSet {
             let minColumnWidth: CGFloat = self.bounds.width / 7
-            self.calendarHeightConstraints.constant = (minColumnWidth - 1) * (6 / 5) * 7 + 10
+            self.calendarHeightConstraints.constant = (minColumnWidth - 1) * (7 / 5) * 7 + 10
         }
     }
     
@@ -144,7 +144,7 @@ extension CustomCalendarView: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         let minColumnWidth: CGFloat = self.bounds.width / 7
-        return CGSize(width: minColumnWidth - 1, height: (minColumnWidth - 1) * (6 / 5) - 2)
+        return CGSize(width: minColumnWidth - 1, height: (minColumnWidth - 1) * (7 / 5) - 2)
     }
     
     func collectionView(

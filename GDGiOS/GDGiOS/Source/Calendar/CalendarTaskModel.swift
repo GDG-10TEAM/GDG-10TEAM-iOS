@@ -8,5 +8,5 @@
 import UIKit
 
 enum CalendarTaskModel {
-    case clean, wash, kitchen, payment
+    case clean, wash, kitchen, friend, payment
 }
