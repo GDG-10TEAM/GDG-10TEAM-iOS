@@ -231,11 +231,11 @@ extension TaskEditViewController : UIPickerViewDelegate, UIPickerViewDataSource 
         
         switch self.pickerType {
         case .day:
-            print(self.day[row])
+            dayTaskButton.setTitle(self.day[row], for: .normal)
         case .count:
-            print(self.count[row])
+            countTaskButton.setTitle(self.count[row], for: .normal)
         case .time:
-            print(self.time[row])
+            timeTaskButton.setTitle(self.time[row], for: .normal)
         }
     }
 }
