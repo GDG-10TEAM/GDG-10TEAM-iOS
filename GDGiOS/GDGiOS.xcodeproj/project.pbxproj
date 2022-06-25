@@ -10,6 +10,8 @@
 		980638362866F8DB00765310 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980638352866F8DB00765310 /* RootTabBarController.swift */; };
 		980638392866FBA500765310 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980638382866FBA500765310 /* CalendarViewController.swift */; };
 		9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806383B2866FE6F00765310 /* TabbarItem.swift */; };
+		AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CC28670F6B0068DA61 /* Router.swift */; };
+		AA35F1CF28670F810068DA61 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CE28670F810068DA61 /* Network.swift */; };
 		C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC082866EBCC0055B342 /* AppDelegate.swift */; };
 		C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */; };
 		C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */; };
@@ -27,6 +29,8 @@
 		980638352866F8DB00765310 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		980638382866FBA500765310 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		9806383B2866FE6F00765310 /* TabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItem.swift; sourceTree = "<group>"; };
+		AA35F1CC28670F6B0068DA61 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		AA35F1CE28670F810068DA61 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 			path = RootTabbar;
 			sourceTree = "<group>";
 		};
+		AA35F1CB28670F5B0068DA61 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AA35F1CC28670F6B0068DA61 /* Router.swift */,
+				AA35F1CE28670F810068DA61 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		C3B2FBFC2866EBCC0055B342 = {
 			isa = PBXGroup;
 			children = (
@@ -117,10 +130,10 @@
 		C3B2FC1C2866EDF10055B342 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AA35F1CB28670F5B0068DA61 /* Network */,
 				9806383A2866FC6200765310 /* RootTabbar */,
 				980638372866FB8900765310 /* Calendar */,
 				C3B2FC242866F3990055B342 /* Main */,
-				C3B2FC232866F38B0055B342 /* Network */,
 				C3B2FC132866EBCD0055B342 /* LaunchScreen.storyboard */,
 				C3B2FC212866EF4D0055B342 /* BaseViewController.swift */,
 			);
@@ -136,13 +149,6 @@
 				C3B2FC1F2866EEF00055B342 /* Constant.swift */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		C3B2FC232866F38B0055B342 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		C3B2FC242866F3990055B342 /* Main */ = {
@@ -273,6 +279,8 @@
 				C3B2FC202866EEF00055B342 /* Constant.swift in Sources */,
 				C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */,
 				980638362866F8DB00765310 /* RootTabBarController.swift in Sources */,
+				AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */,
+				AA35F1CF28670F810068DA61 /* Network.swift in Sources */,
 				C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */,
 				980638392866FBA500765310 /* CalendarViewController.swift in Sources */,
 				9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */,

@@ -13,5 +13,5 @@ struct StoryBoard {
 
 
 struct EndPoint {
-    static let point = ""
+    static let url = ""
 }
