@@ -48,8 +48,8 @@ final class ProgressBarView: UIView {
         widthConstraint = bar.widthAnchor.constraint(equalTo: backgroundBar.widthAnchor, multiplier: 1.0)
         widthConstraint.isActive = true
         
-        addSubview(label)
-        label.snp.makeConstraints { make in
+        addSubview(restTimeLabel)
+        restTimeLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(20)
         }
@@ -67,9 +67,7 @@ final class ProgressBarView: UIView {
         return view
     }()
     
-    private let label: UILabel = {
-        let label = UILabel()
-        label.text = "2시간 23시 남았어요"
-        return label
-    }()
+    private let restTimeLabel = RestTimeLabel()
 }
+
+

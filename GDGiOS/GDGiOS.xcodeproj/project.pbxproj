@@ -12,6 +12,7 @@
 		9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806383B2866FE6F00765310 /* TabbarItem.swift */; };
 		980638412867299700765310 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980638402867299700765310 /* TaskTableViewCell.swift */; };
 		98AD084A2867556500FD4999 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD08492867556500FD4999 /* ProgressBarView.swift */; };
+		98AD084C28676D8200FD4999 /* RestTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD084B28676D8200FD4999 /* RestTimeLabel.swift */; };
 		AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CC28670F6B0068DA61 /* Router.swift */; };
 		AA35F1CF28670F810068DA61 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CE28670F810068DA61 /* Network.swift */; };
 		AA35F1D1286716B00068DA61 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1D0286716B00068DA61 /* Calendar.storyboard */; };
@@ -50,6 +51,7 @@
 		9806383B2866FE6F00765310 /* TabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItem.swift; sourceTree = "<group>"; };
 		980638402867299700765310 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		98AD08492867556500FD4999 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		98AD084B28676D8200FD4999 /* RestTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimeLabel.swift; sourceTree = "<group>"; };
 		AA35F1CC28670F6B0068DA61 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AA35F1CE28670F810068DA61 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		AA35F1D0286716B00068DA61 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				980638402867299700765310 /* TaskTableViewCell.swift */,
 				98AD08492867556500FD4999 /* ProgressBarView.swift */,
+				98AD084B28676D8200FD4999 /* RestTimeLabel.swift */,
 			);
 			path = TaskCell;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */,
 				AA35F1DE286716F70068DA61 /* CustomCalendarCell.swift in Sources */,
 				C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */,
+				98AD084C28676D8200FD4999 /* RestTimeLabel.swift in Sources */,
 				C3B2FC4F286729DE0055B342 /* PhotoViewController.swift in Sources */,
 				AA35F1DB286716F70068DA61 /* CustomCalendarModel.swift in Sources */,
 				AA35F1DA286716F70068DA61 /* CustomCalendarView.swift in Sources */,
