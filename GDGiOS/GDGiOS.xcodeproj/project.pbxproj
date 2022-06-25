@@ -14,7 +14,7 @@
 		98AD084A2867556500FD4999 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD08492867556500FD4999 /* ProgressBarView.swift */; };
 		98AD084C28676D8200FD4999 /* RestTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD084B28676D8200FD4999 /* RestTimeLabel.swift */; };
 		98AD084E286789F500FD4999 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD084D286789F500FD4999 /* UITableViewCell+Extension.swift */; };
-		98AD08522867A20700FD4999 /* img-home.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 98AD08512867A20700FD4999 /* img-home.GIF */; };
+		98AD08522867A20700FD4999 /* img-home.gif in Resources */ = {isa = PBXBuildFile; fileRef = 98AD08512867A20700FD4999 /* img-home.gif */; };
 		AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CC28670F6B0068DA61 /* Router.swift */; };
 		AA35F1CF28670F810068DA61 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CE28670F810068DA61 /* Network.swift */; };
 		AA35F1D1286716B00068DA61 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1D0286716B00068DA61 /* Calendar.storyboard */; };
@@ -31,7 +31,6 @@
 		AA35F1EF286758C50068DA61 /* NEXT ART_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EC286758AD0068DA61 /* NEXT ART_Regular.otf */; };
 		AA35F1F0286758C70068DA61 /* NEXT ART_SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EB286758AD0068DA61 /* NEXT ART_SemiBold.otf */; };
 		AA35F1F1286758C90068DA61 /* NEXT ART_Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EA286758AD0068DA61 /* NEXT ART_Thin.otf */; };
-		C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */; };
 		AA35F1F42867636F0068DA61 /* CalendarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1F32867636F0068DA61 /* CalendarDetailViewController.swift */; };
 		AA35F1F6286763750068DA61 /* CalendarDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1F5286763750068DA61 /* CalendarDetail.storyboard */; };
 		AA35F1F828676BE90068DA61 /* CalendarTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1F728676BE90068DA61 /* CalendarTaskModel.swift */; };
@@ -39,6 +38,7 @@
 		AA35F201286778CB0068DA61 /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F200286778CB0068DA61 /* EditCell.swift */; };
 		AA35F20328678CB30068DA61 /* EditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F20228678CB30068DA61 /* EditModel.swift */; };
 		AA35F205286795CE0068DA61 /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F204286795CE0068DA61 /* Edit.storyboard */; };
+		C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */; };
 		C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC082866EBCC0055B342 /* AppDelegate.swift */; };
 		C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */; };
 		C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */; };
@@ -63,7 +63,7 @@
 		98AD08492867556500FD4999 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		98AD084B28676D8200FD4999 /* RestTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimeLabel.swift; sourceTree = "<group>"; };
 		98AD084D286789F500FD4999 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
-		98AD08512867A20700FD4999 /* img-home.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "img-home.GIF"; sourceTree = "<group>"; };
+		98AD08512867A20700FD4999 /* img-home.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "img-home.gif"; sourceTree = "<group>"; };
 		AA35F1CC28670F6B0068DA61 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AA35F1CE28670F810068DA61 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		AA35F1D0286716B00068DA61 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -80,7 +80,6 @@
 		AA35F1EA286758AD0068DA61 /* NEXT ART_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Thin.otf"; sourceTree = "<group>"; };
 		AA35F1EB286758AD0068DA61 /* NEXT ART_SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_SemiBold.otf"; sourceTree = "<group>"; };
 		AA35F1EC286758AD0068DA61 /* NEXT ART_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Regular.otf"; sourceTree = "<group>"; };
-		C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskViewController.swift; sourceTree = "<group>"; };
 		AA35F1F32867636F0068DA61 /* CalendarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailViewController.swift; sourceTree = "<group>"; };
 		AA35F1F5286763750068DA61 /* CalendarDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarDetail.storyboard; sourceTree = "<group>"; };
 		AA35F1F728676BE90068DA61 /* CalendarTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTaskModel.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		AA35F200286778CB0068DA61 /* EditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCell.swift; sourceTree = "<group>"; };
 		AA35F20228678CB30068DA61 /* EditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModel.swift; sourceTree = "<group>"; };
 		AA35F204286795CE0068DA61 /* Edit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
+		C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskViewController.swift; sourceTree = "<group>"; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 		C3B2FC1D2866EDF80055B342 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				98AD08512867A20700FD4999 /* img-home.GIF */,
+				98AD08512867A20700FD4999 /* img-home.gif */,
 				AA35F1E7286758960068DA61 /* Fonts */,
 				C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */,
 				C3B2FC082866EBCC0055B342 /* AppDelegate.swift */,
@@ -381,7 +381,7 @@
 				AA35F1DC286716F70068DA61 /* CustomCalendarCell.xib in Resources */,
 				AA35F1F6286763750068DA61 /* CalendarDetail.storyboard in Resources */,
 				AA35F1F0286758C70068DA61 /* NEXT ART_SemiBold.otf in Resources */,
-				98AD08522867A20700FD4999 /* img-home.GIF in Resources */,
+				98AD08522867A20700FD4999 /* img-home.gif in Resources */,
 				AA35F1EF286758C50068DA61 /* NEXT ART_Regular.otf in Resources */,
 				C3B2FC122866EBCD0055B342 /* Assets.xcassets in Resources */,
 				AA35F1DD286716F70068DA61 /* CustomCalendar.xib in Resources */,

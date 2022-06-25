@@ -122,13 +122,6 @@ extension MainViewController: UITableViewDelegate {
         return 110
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        if let sectionType = SectionType(rawValue: section), sectionType == .welcome {
-//            return
-//        }
-//        return 30
-//    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
                 print("delete: ", indexPath.row)
@@ -162,13 +155,14 @@ extension MainViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTitleCell.identifier, for: indexPath) as? HomeTitleCell else {
                 return UITableViewCell()
             }
+            cell.selectionStyle = .none
             return cell
         case .activeTasks,.doneTasks:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath) as? TaskTableViewCell else {
                 return UITableViewCell()
             }
+            cell.selectionStyle = .none
             let data = sectionData[indexPath.row]
-                
             cell.updateViews(title: data.title, progress: data.progress)
             return cell
         }
@@ -211,10 +205,17 @@ final class HomeTitleView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let imageView = GIFImageView()
-    
     private func setupViews() {
+        
+        let imageView = GIFImageView()
+        imageView.animate(withGIFNamed: "img-home") // 재생시작
         addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        
+
         addSubview(titleLabel)
         addSubview(button)
         
@@ -229,27 +230,7 @@ final class HomeTitleView: UIView {
             make.bottom.equalTo(titleLabel.snp.bottom)
             make.right.equalToSuperview().inset(sideMargin)
         }
-        
-        
-        let image = UIImage.gifImage(named: "img-home")
-        let imageV = UIImageView(image: image)
-        imageV.backgroundColor = .mainYellow
-        addSubview(imageV)
-        imageV.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-    
-        
-//        imageView.animate(withGIFNamed: "gif_home") // 재생 시작
-//        imageView.stopAnimatingGIF() // 재생 종료
     }
-    
-//    private let imageView: UIImageView = {
-//        let imageView = UIImageView(image: UIImage(named: "img_home"))
-//        return imageView
-//    }()
-    
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -281,29 +262,3 @@ final class HomeTitleView: UIView {
 //    }
 //
 //}
-
-fileprivate extension UIImage {
-    class func gifImage(named: String, withTintColor: UIColor? = nil) -> UIImage? {
-        guard let bundleURL = Bundle.main.url(forResource: named, withExtension: "gif"),
-              let imageData = try? Data(contentsOf: bundleURL),
-              let source = CGImageSourceCreateWithData(imageData as CFData, nil)
-        else { return nil }
-        return UIImage.animatedImageWithSource(source, withTintColor: withTintColor)
-    }
-
-    private class func animatedImageWithSource(_ source: CGImageSource, withTintColor: UIColor?) -> UIImage? {
-        let count: Int = CGImageSourceGetCount(source)
-        let images: [UIImage] = (0..<count).compactMap {
-            CGImageSourceCreateImageAtIndex(source, $0, nil)
-        }.map {
-            if let tintColor = withTintColor {
-                return UIImage(cgImage: $0).withTintColor(tintColor)
-            } else {
-                return UIImage(cgImage: $0)
-            }
-        }
-        let time: TimeInterval = 0.05 * Double(images.count)
-
-        return UIImage.animatedImage(with: images, duration: time)
-    }
-}
