@@ -167,6 +167,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
             $0.layer.borderColor = UIColor.gray.cgColor
             $0.layer.borderWidth = 1
             $0.layer.cornerRadius = 10
+            $0.clipsToBounds = true
         }
         self.view.addSubview(cameraView)
         cameraView.snp.makeConstraints {
@@ -276,6 +277,3 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
         self.present(alert, animated: true, completion: nil)
     }
 }
-
-
-
