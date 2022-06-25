@@ -32,21 +32,33 @@ class TopTabBarView: UIView {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
     }
+    
+    let lineStackView = UIStackView().then {
+        $0.backgroundColor = .white
+        $0.axis = .horizontal
+        $0.distribution = .fillEqually
+    }
     required init(selectedIndex: Int) {
         super.init(frame: .zero)
         
         self.addSubview(btnStackView)
         btnStackView.snp.makeConstraints {
-            $0.leading.trailing.top.bottom.equalToSuperview()
-            $0.height.equalTo(42)
+            $0.leading.trailing.top.equalToSuperview()
+            $0.height.equalTo(39)
         }
-
+        self.addSubview(lineStackView)
+        lineStackView.snp.makeConstraints {
+            $0.top.equalTo(btnStackView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(3)
+        }
         for i in 0..<colorArr.count {
             let btnView = UIButton().then {
                 $0.tag = i
             }
             let lineView = UIView().then {
                 $0.backgroundColor = colorArr[i]
+                $0.tag = i
             }
             
             let label = UILabel().then {
@@ -60,20 +72,16 @@ class TopTabBarView: UIView {
             btnView.snp.makeConstraints {
                 $0.height.equalToSuperview()
             }
-            btnView.addSubview(lineView)
             btnView.addSubview(label)
-            
+            lineStackView.addArrangedSubview(lineView)
             lineView.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
-                $0.height.equalTo(3)
-                $0.width.equalTo(25)
-                $0.bottom.equalToSuperview()
+                $0.height.equalToSuperview()
             }
-            if selectedIndex == i{
-                lineView.isHidden = false
-            }else{
-                lineView.isHidden = true
-            }
+//            if selectedIndex == i{
+//                lineView.isHidden = false
+//            }else{
+//                lineView.isHidden = true
+//            }
             label.snp.makeConstraints {
                 $0.centerY.centerX.equalToSuperview()
                 $0.top.equalToSuperview().inset(13)
@@ -86,9 +94,15 @@ class TopTabBarView: UIView {
     }
     
     func changeView(selectedIndex: Int){
-        for subview in btnStackView.arrangedSubviews {
-            let myViews = (subview as! UIButton).subviews.filter{$0 is UIView}
-            myViews.forEach { $0.isHidden = true}
+        var i = 0
+        for subview in lineStackView.arrangedSubviews {
+            if selectedIndex == i{
+                subview.isHidden = false
+            }else{
+                subview.isHidden = true
+            }
+            
+            i += 1
         }
     }
 }

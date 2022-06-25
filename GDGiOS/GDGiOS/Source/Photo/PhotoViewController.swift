@@ -18,58 +18,30 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     var captureImage: UIImage!
     // 사진 저장 여부
     var flagImageSave = false
+    var statusBarView: UIView!
+
+    var naviView = UIView()
+//    let selectedStackView = TopTabBarView(selectedIndex: 0)
     
-    var naviView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        return view
-    }()
+    var titleLabel = UILabel()
+    var timeLabel = UILabel()
+    var timeHourImg = UIImageView()
+    var timeHourLabel = UILabel()
+    var timeMinuteImg = UIImageView()
+    var timeMinuteLabel = UILabel()
     
-    let selectedStackView = TopTabBarView(selectedIndex: 0)
+    var cameraView = UIImageView()
+    var cameraBtn =  UIButton()
+    var cameraImg = UIImageView()
+    var tagLabel = UILabel()
     
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.backgroundColor = .blue
-        stackView.axis = .horizontal
-        return stackView
-    }()
-    
-    let titleView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        return view
-    }()
-    
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "할일 제목입니다."
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        return label
-    }()
-    
-    let subTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "할일 상세보기"
-        return label
-    }()
-    
-    let cameraView: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = .systemPink
-        return view
-    }()
-    
-    let cameraBtn: UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = .systemGreen
-        btn.setTitle("인증하기", for: .normal)
-        return btn
-    }()
+    var nextPageBtn = UIButton()
     
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initNaviBar()
+        initStatusBar()
         initUIComponent()
     }
     
@@ -92,62 +64,220 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     
     //MARK: UI
     func initNaviBar(){
+        naviView = UIView().then{
+            $0.backgroundColor = .white
+        }
         self.view.addSubview(naviView)
-        naviView.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.top.equalToSuperview()
-            make.height.equalTo(80)
+        naviView.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.height.equalTo(50)
         }
+        let naviTitle = UILabel().then{
+            $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            $0.textColor = .black
+            $0.text = "테스크 완료하기"
+        }
+        naviView.addSubview(naviTitle)
+        naviTitle.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
+        let naviBtn = UIButton().then{
+            $0.setImage(UIImage(named: "icon_back"), for: .normal)
+        }
+        naviView.addSubview(naviBtn)
+        naviBtn.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(24)
+            $0.top.equalToSuperview().inset(19)
+            $0.height.equalTo(12)
+            $0.width.equalTo(5)
+        }
+        naviBtn.addTarget(self, action: #selector(clickedBackBtn), for: .touchUpInside)
     }
+    
+    func initStatusBar(){
+        self.view.backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            let statusBarFrame = UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame
+            statusBarView = UIView(frame: statusBarFrame ?? .zero)
+            self.view.addSubview(statusBarView)
+        } else {
+            statusBarView = UIApplication.shared.value(forKey: "statusBar") as? UIView
+        }
+        statusBarView?.backgroundColor = .white
+    }
+    
     func initUIComponent(){
-        self.view.addSubview(selectedStackView)
-        selectedStackView.snp.makeConstraints { (make) in
-            make.top.equalTo(naviView.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(42)
+//        self.view.addSubview(selectedStackView)
+//        selectedStackView.snp.makeConstraints {
+//            $0.top.equalTo(naviView.snp.bottom)
+//            $0.leading.trailing.equalToSuperview()
+//            $0.height.equalTo(42)
+//        }
+//
+//        for subview in selectedStackView.btnStackView.arrangedSubviews {
+//            (subview as! UIButton).addTarget(self, action: #selector(clickedTopTabBarBtn), for: .touchUpInside)
+//        }
+        // 태그 라벨
+        tagLabel = UILabel().then{
+            $0.layer.cornerRadius = 10
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = UIColor.mainGreen.cgColor
+            $0.font = UIFont.systemFont(ofSize: 12)
+            $0.text = "납부"
+            $0.textAlignment = .center
+            $0.textColor = .mainGreen
         }
         
-        for subview in selectedStackView.btnStackView.arrangedSubviews {
-            (subview as! UIButton).addTarget(self, action: #selector(clickedTopTabBarBtn), for: .touchUpInside)
+        self.view.addSubview(tagLabel)
+        tagLabel.snp.makeConstraints{
+            $0.top.equalTo(naviView.snp.bottom).offset(30)
+            $0.leading.equalTo(22)
+            $0.height.equalTo(21)
+            $0.width.equalTo(40)
         }
         
-        self.view.addSubview(titleView)
-        titleView.snp.makeConstraints { (make) in
-            make.top.equalTo(selectedStackView.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(70)
+        // 할일 제목
+        titleLabel = UILabel().then{
+            $0.text = "할일 제목입니다."
+            $0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            $0.textColor = .black
         }
-
-        titleView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.leading.trailing.equalToSuperview().inset(10)
-            make.height.equalTo(20)
+        self.view.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(tagLabel.snp.bottom).offset(30)
+            $0.trailing.equalToSuperview().inset(82)
+            $0.leading.equalToSuperview().inset(18)
+            $0.height.equalTo(20)
         }
-        titleView.addSubview(subTitleLabel)
-        subTitleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(10)
-            make.height.equalTo(20)
+        
+        // 할일 시간
+        
+        timeHourImg = UIImageView().then{
+            $0.image = UIImage(named: "icon_hour")
+        }
+        timeHourLabel = UILabel().then{
+            $0.text = "2"
+            $0.textColor = .black
+            $0.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        }
+        timeMinuteImg = UIImageView().then{
+            $0.image = UIImage(named: "icon_minute")
+        }
+        timeMinuteLabel = UILabel().then{
+            $0.text = "23"
+            $0.textColor = .black
+            $0.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        }
+        
+        self.view.addSubview(timeHourImg)
+        self.view.addSubview(timeHourLabel)
+        self.view.addSubview(timeMinuteImg)
+        self.view.addSubview(timeMinuteLabel)
+        timeHourLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(3)
+            $0.leading.equalTo(titleLabel.snp.leading)
+            $0.height.equalTo(20)
+        }
+        timeHourImg.snp.makeConstraints {
+            $0.leading.equalTo(timeHourLabel.snp.trailing).offset(1)
+            $0.centerY.equalTo(timeHourLabel.snp.centerY)
+            $0.height.width.equalTo(11)
+        }
+        timeMinuteLabel.snp.makeConstraints {
+            $0.leading.equalTo(timeHourImg.snp.trailing).offset(3)
+            $0.centerY.equalTo(timeHourLabel.snp.centerY)
+            $0.height.equalTo(20)
+        }
+        timeMinuteImg.snp.makeConstraints {
+            $0.leading.equalTo(timeMinuteLabel.snp.trailing).offset(1)
+            $0.centerY.equalTo(timeHourLabel.snp.centerY)
+            $0.height.width.equalTo(11)
+        }
+        
+        timeLabel = UILabel().then{
+            $0.text = "할일 서브."
+            $0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+            $0.textColor = .black
+        }
+        self.view.addSubview(timeLabel)
+        timeLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(3)
+            $0.leading.equalTo(timeMinuteImg.snp.trailing).offset(1)
+            $0.height.equalTo(20)
+        }
+        
+        // 카메라 뷰
+        cameraView = UIImageView().then{
+            $0.backgroundColor = .clear
+            $0.layer.borderColor = UIColor.gray.cgColor
+            $0.layer.borderWidth = 1
+            $0.layer.cornerRadius = 10
         }
         self.view.addSubview(cameraView)
-        cameraView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleView.snp.bottom).offset(50)
-            make.leading.trailing.equalToSuperview().inset(50)
-            make.height.equalTo(300)
+        cameraView.snp.makeConstraints {
+            $0.top.equalTo(timeLabel.snp.bottom).offset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(UIScreen.main.bounds.size.width - 40)
+        }
+        
+        // 카메라 이미지
+        cameraImg = UIImageView().then{
+            $0.image = UIImage(named: "icon_camera")
+        }
+        
+        self.view.addSubview(cameraImg)
+        cameraImg.snp.makeConstraints {
+            $0.centerX.equalTo(cameraView.snp.centerX)
+            $0.centerY.equalTo(cameraView.snp.centerY)
+            $0.height.width.equalTo(87)
+        }
+        self.view.bringSubviewToFront(cameraView)
+        
+        // 인증 버튼
+        cameraBtn = UIButton().then{
+            $0.layer.cornerRadius = 10
+            $0.backgroundColor = .black
+            $0.setTitle("인증하기", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            $0.setTitleColor(UIColor.white, for: .normal)
         }
         self.view.addSubview(cameraBtn)
-        cameraBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(cameraView.snp.bottom).offset(50)
-            make.leading.trailing.equalToSuperview().inset(100)
-            make.height.equalTo(70)
+        cameraBtn.snp.makeConstraints {
+            $0.top.equalTo(cameraView.snp.bottom).offset(32)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(55)
         }
         cameraBtn.addTarget(self, action: #selector(btnCaptureImageFromCamera(_:)), for: .touchUpInside)
+        
+        //
+        nextPageBtn = UIButton().then{
+            $0.setTitle("완료기록 보러가기 >", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            $0.setTitleColor(UIColor.black, for: .normal)
+        }
+        self.view.addSubview(nextPageBtn)
+        nextPageBtn.snp.makeConstraints {
+            $0.top.equalTo(cameraBtn.snp.bottom).offset(24)
+            $0.trailing.equalToSuperview().inset(20)
+        }
+        nextPageBtn.addTarget(self, action: #selector(clickedNextPageBtn(_:)), for: .touchUpInside)
     }
     
     //MARK: Function
+    
+    @objc func clickedNextPageBtn(_ sender: UIButton){
+        //TODO: 다음 페이지로
+    }
+    
+    @objc func clickedBackBtn(_ sender: UIButton){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @objc func clickedTopTabBarBtn(_ sender: UIButton){
-        selectedStackView.changeView(selectedIndex: sender.tag)
+//        selectedStackView.changeView(selectedIndex: sender.tag)
 //        switch sender.tag {
 //        case 0: selectedStackView.changeView(selectedIndex: sender.tag)
 //        case 1: print("빨래")
