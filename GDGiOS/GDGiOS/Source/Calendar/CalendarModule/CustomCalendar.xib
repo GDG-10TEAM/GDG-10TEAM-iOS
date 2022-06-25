@@ -77,13 +77,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FZ-cY-bZH">
-                    <rect key="frame" x="25" y="8" width="19.5" height="17"/>
+                    <rect key="frame" x="25" y="9" width="19.5" height="17"/>
                     <fontDescription key="fontDescription" name="NEXTART-Bold" family="NEXT ART" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thT-1f-6Tf">
-                    <rect key="frame" x="364.5" y="8" width="24.5" height="17"/>
+                    <rect key="frame" x="364.5" y="9" width="24.5" height="17"/>
                     <fontDescription key="fontDescription" name="NEXTART-Bold" family="NEXT ART" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -96,9 +96,9 @@
                 <constraint firstItem="9FZ-cY-bZH" firstAttribute="leading" secondItem="lmb-DD-ROG" secondAttribute="trailing" constant="5" id="7P1-Zn-uru"/>
                 <constraint firstItem="lmb-DD-ROG" firstAttribute="centerY" secondItem="ExX-Zq-hKv" secondAttribute="centerY" id="A2f-I7-uMe"/>
                 <constraint firstItem="rib-z3-GsO" firstAttribute="top" secondItem="ExX-Zq-hKv" secondAttribute="bottom" constant="25" id="CR6-a4-lGj"/>
-                <constraint firstItem="thT-1f-6Tf" firstAttribute="centerY" secondItem="R4Q-MN-KDc" secondAttribute="centerY" id="CiM-m0-uwU"/>
+                <constraint firstItem="thT-1f-6Tf" firstAttribute="centerY" secondItem="R4Q-MN-KDc" secondAttribute="centerY" constant="1" id="CiM-m0-uwU"/>
                 <constraint firstItem="R4Q-MN-KDc" firstAttribute="leading" secondItem="thT-1f-6Tf" secondAttribute="trailing" constant="5" id="G2l-QO-tOa"/>
-                <constraint firstItem="9FZ-cY-bZH" firstAttribute="centerY" secondItem="lmb-DD-ROG" secondAttribute="centerY" id="Laq-UA-cDL"/>
+                <constraint firstItem="9FZ-cY-bZH" firstAttribute="centerY" secondItem="lmb-DD-ROG" secondAttribute="centerY" constant="1" id="Laq-UA-cDL"/>
                 <constraint firstItem="ExX-Zq-hKv" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="NyV-aw-qwq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rib-z3-GsO" secondAttribute="trailing" id="Pdf-tF-VKo"/>
                 <constraint firstItem="lmb-DD-ROG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="aJK-jf-fhs"/>

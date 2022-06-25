@@ -9,7 +9,14 @@ final class CalendarViewController: BaseViewController {
     }
     
     private func configureView() {
+        let calendarTitleAttrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 21, weight: .bold)
+        ]
         
+        UINavigationBar.appearance().titleTextAttributes = calendarTitleAttrs
+        
+        self.title = "LOGO"
     }
     
     @IBAction func buttonAction(_ sender: Any) {
