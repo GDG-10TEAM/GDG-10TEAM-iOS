@@ -13,6 +13,7 @@ struct StoryBoard {
     static let taskEdit = "TaskEdit"
     static let calendarDetail = "CalendarDetail"
     static let edit = "Edit"
+    static let setting = "Setting"
 }
 
 
