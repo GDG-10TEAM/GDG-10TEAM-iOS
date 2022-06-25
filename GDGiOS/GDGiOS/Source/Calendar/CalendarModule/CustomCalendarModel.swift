@@ -21,7 +21,7 @@ struct CustomCalendarCellModel: IdentifiableType, Equatable {
     
     let isSunDay: Bool
     let isCurrentMonth: Bool
-    let isCurrentDay: Bool
+    let calendarTaskModel: [CalendarTaskModel]
     let day: Int
     let date: Date?
 }

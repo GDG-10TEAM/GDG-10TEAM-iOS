@@ -18,12 +18,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpt-Im-a6o">
-                        <rect key="frame" x="12" y="0.0" width="68" height="19.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PS8-yo-pbz">
-                        <rect key="frame" x="0.0" y="19.5" width="80" height="41.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PS8-yo-pbz">
+                        <rect key="frame" x="0.0" y="24.5" width="80" height="15"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JsI-rT-Lly">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="5"/>
@@ -32,7 +32,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="un1-Nn-SQa">
-                                <rect key="frame" x="0.0" y="36.5" width="80" height="5"/>
+                                <rect key="frame" x="0.0" y="10" width="80" height="5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="tXl-Ek-sJc"/>
                                 </constraints>
@@ -43,10 +43,9 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="kpt-Im-a6o" secondAttribute="trailing" id="5vG-gx-XaB"/>
                     <constraint firstAttribute="trailing" secondItem="PS8-yo-pbz" secondAttribute="trailing" id="9E2-Vl-Suk"/>
-                    <constraint firstItem="PS8-yo-pbz" firstAttribute="top" secondItem="kpt-Im-a6o" secondAttribute="bottom" id="CZn-gE-Ace"/>
+                    <constraint firstItem="PS8-yo-pbz" firstAttribute="top" secondItem="kpt-Im-a6o" secondAttribute="bottom" constant="5" id="CZn-gE-Ace"/>
                     <constraint firstItem="kpt-Im-a6o" firstAttribute="top" secondItem="x4o-cf-cnv" secondAttribute="top" id="Cic-yS-Mcg"/>
-                    <constraint firstItem="kpt-Im-a6o" firstAttribute="leading" secondItem="x4o-cf-cnv" secondAttribute="leading" constant="12" id="aK1-it-oVf"/>
-                    <constraint firstAttribute="bottom" secondItem="PS8-yo-pbz" secondAttribute="bottom" id="hQG-v0-Z13"/>
+                    <constraint firstItem="kpt-Im-a6o" firstAttribute="leading" secondItem="x4o-cf-cnv" secondAttribute="leading" id="aK1-it-oVf"/>
                     <constraint firstItem="PS8-yo-pbz" firstAttribute="leading" secondItem="x4o-cf-cnv" secondAttribute="leading" id="m7d-68-W5a"/>
                 </constraints>
             </collectionViewCellContentView>

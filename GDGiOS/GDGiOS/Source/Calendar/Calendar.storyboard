@@ -50,6 +50,10 @@
                             <constraint firstItem="yz7-Tn-ZpD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="150" id="gSi-GV-jDR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calendarView" destination="yz7-Tn-ZpD" id="Y6v-co-zDW"/>
+                        <outlet property="taskLabel" destination="fam-Fh-JFW" id="ENX-m8-y0t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

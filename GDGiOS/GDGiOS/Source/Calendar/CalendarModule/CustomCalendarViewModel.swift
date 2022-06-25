@@ -123,7 +123,7 @@ final class CustomCalendarViewModel {
                     identity: UUID().uuidString,
                     isSunDay: false,
                     isCurrentMonth: false,
-                    isCurrentDay: false,
+                    calendarTaskModel: [],
                     day: daysCountBeforeMonth + day,
                     date: _calendar.date(from: tempComponents))
                 )
@@ -132,7 +132,7 @@ final class CustomCalendarViewModel {
                     identity: UUID().uuidString,
                     isSunDay: count % 7 == 0 ? true : false,
                     isCurrentMonth: true,
-                    isCurrentDay: isSameDate(_calendar.date(from: tempComponents)),
+                    calendarTaskModel: [],
                     day: day,
                     date: _calendar.date(from: tempComponents))
                 )
@@ -150,8 +150,8 @@ final class CustomCalendarViewModel {
             cellModels.append(CustomCalendarCellModel(
                 identity: UUID().uuidString,
                 isSunDay: false,
-                isCurrentMonth: false,
-                isCurrentDay: false,
+                isCurrentMonth: true,
+                calendarTaskModel: [],
                 day: nextDay,
                 date: _calendar.date(from: tempComponents))
             )
@@ -189,7 +189,8 @@ extension CustomCalendarViewModel {
         self._selectedItem
             .compactMap { $0 }
             .subscribe(onNext : { [weak self] model in
-                
+                if !model.isCurrentMonth { return }
+                self?._selectedDate.onNext(model.date)
             })
             .disposed(by: disposeBag)
     }

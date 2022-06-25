@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NEXT ART_Bold.otf">
+            <string>NEXTART-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Calendar Detail View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CalendarDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="CalendarDetailViewController" customModule="GDGiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYW-Y1-Ht1">
+                                <rect key="frame" x="165.5" y="69" width="83" height="33"/>
+                                <fontDescription key="fontDescription" name="NEXTART-Bold" family="NEXT ART" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LMV-kj-tj8">
+                                <rect key="frame" x="0.0" y="122" width="414" height="740"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SYW-Y1-Ht1" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="3sz-Sd-1Vj"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LMV-kj-tj8" secondAttribute="trailing" id="9IZ-gP-WDz"/>
+                            <constraint firstItem="SYW-Y1-Ht1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="QHL-pI-Ezg"/>
+                            <constraint firstItem="LMV-kj-tj8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Rne-UA-EDV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LMV-kj-tj8" secondAttribute="bottom" id="YOC-KH-ps3"/>
+                            <constraint firstItem="LMV-kj-tj8" firstAttribute="top" secondItem="SYW-Y1-Ht1" secondAttribute="bottom" constant="20" id="vC7-TQ-5gx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarDetailTableView" destination="LMV-kj-tj8" id="Wwd-wa-OxX"/>
+                        <outlet property="dayLabel" destination="SYW-Y1-Ht1" id="AdU-vX-zQZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23" y="124"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
