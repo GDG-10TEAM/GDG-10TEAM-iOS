@@ -23,6 +23,7 @@ struct CustomCalendarViewModelOutput {
     let currentMonth: Driver<String>
     let selectedDate: Driver<Date?>
     let cellDataSource: Driver<[CustomCalendarCellDataSource]>
+    let taskCount: Driver<Int?>
 }
 
 final class CustomCalendarViewModel {
@@ -42,6 +43,7 @@ final class CustomCalendarViewModel {
     private let _currentMonth = BehaviorSubject<String>(value: "")
     private let _selectedDate = BehaviorSubject<Date?>(value: nil)
     private let _cellDataSource = BehaviorSubject<[CustomCalendarCellDataSource]>(value: [])
+    private let _taskCount = BehaviorSubject<Int?>(value: nil)
     
     private let _dayFormatter = DateFormatter()
     
@@ -73,7 +75,8 @@ final class CustomCalendarViewModel {
             nextMonthText: _nextMonthText.asDriver(onErrorJustReturn: ""),
             currentMonth: _currentMonth.asDriver(onErrorJustReturn: ""),
             selectedDate: _selectedDate.asDriver(onErrorJustReturn: nil),
-            cellDataSource: _cellDataSource.asDriver(onErrorJustReturn: [])
+            cellDataSource: _cellDataSource.asDriver(onErrorJustReturn: []),
+            taskCount: _taskCount.asDriver(onErrorJustReturn: nil)
         )
         
         self._configure()
@@ -126,15 +129,19 @@ final class CustomCalendarViewModel {
         var cellModels = [CustomCalendarCellModel]()
         var count = 0
         
+        var modelCount = 0
+        
         for day in firstWeekday...daysCountInMonth {
             var tempComponents = _components
             tempComponents.day = day
+            let mock = mockList[Int.random(in: 0...7)]
+            modelCount += mock.count
             if day < 1 {
                 cellModels.append(CustomCalendarCellModel(
                     identity: UUID().uuidString,
                     isSunDay: false,
                     isCurrentMonth: false,
-                    calendarTaskModel: mockList[Int.random(in: 0...7)],
+                    calendarTaskModel: mock,
                     day: daysCountBeforeMonth + day,
                     date: _calendar.date(from: tempComponents))
                 )
@@ -143,7 +150,7 @@ final class CustomCalendarViewModel {
                     identity: UUID().uuidString,
                     isSunDay: count % 7 == 0 ? true : false,
                     isCurrentMonth: true,
-                    calendarTaskModel: mockList[Int.random(in: 0...7)],
+                    calendarTaskModel: mock,
                     day: day,
                     date: _calendar.date(from: tempComponents))
                 )
@@ -157,12 +164,14 @@ final class CustomCalendarViewModel {
             var tempComponents = _components
             tempComponents.month = currentMonth + 1
             tempComponents.day = nextDay
+            let mock = mockList[Int.random(in: 0...7)]
+            modelCount += mock.count
             
             cellModels.append(CustomCalendarCellModel(
                 identity: UUID().uuidString,
                 isSunDay: false,
                 isCurrentMonth: true,
-                calendarTaskModel: mockList[Int.random(in: 0...7)],
+                calendarTaskModel: mock,
                 day: nextDay,
                 date: _calendar.date(from: tempComponents))
             )
@@ -172,6 +181,7 @@ final class CustomCalendarViewModel {
         self._cellDataSource.onNext([
             CustomCalendarCellDataSource(items: cellModels, identity: UUID().uuidString)
         ])
+        self._taskCount.onNext(modelCount)
     }
     
     private func isSelectedDate(_ date: Date?) -> Bool {
