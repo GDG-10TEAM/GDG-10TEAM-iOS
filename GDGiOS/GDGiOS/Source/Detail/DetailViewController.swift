@@ -1,14 +1,6 @@
-//
-//  ViewController.swift
-//  GDGiOS
-//
-//  Created by 김수빈 on 2022/06/25.
-//
-
 import UIKit
-import SnapKit
 
-final class MainViewController: BaseViewController {
+class DetailViewController: UIViewController {
 
     enum SectionType: Int {
         case welcome = 0
@@ -44,14 +36,6 @@ final class MainViewController: BaseViewController {
             
         ]
     
-    
-    var currentIndex : Int {
-           guard let vc = viewControllers.first else { return 0 }
-           return viewControllers.firstIndex(of: vc) ?? 0
-       }
-    
-    private let viewControllers: [UIViewController] = [DetailViewController(), DetailViewController()]
-    
     private let topMenuView = TopTabBarView(selectedIndex: 0)
     private var naviView = UIView()
     
@@ -59,18 +43,10 @@ final class MainViewController: BaseViewController {
         super.viewDidLoad()
         initNaviBar()
         setupViews()
-        
-        DefaultNetworkService.instance.request(
-            router: MainRoutor.mainFetch
-        ) { [weak self] (response: [MainDTO]) in
-            print(response)
-        }
-
     }
     
     @objc func touchedEditButton() {
         print("move edit page")
-    
         EditViewController.editInitializer(viewController: self)
     }
     
@@ -113,18 +89,11 @@ final class MainViewController: BaseViewController {
             (subview as! UIButton).addTarget(self, action: #selector(clickedTopTabBarBtn), for: .touchUpInside)
         }
         
-        // 여기서 부터 페이징 함
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topMenuView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
-        
-        let detailViewController = DetailViewController()
-        let pageViewController = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal)
-        pageViewController.setViewControllers([detailViewController], direction: .forward, animated: false)
-        pageViewController.dataSource = self
-//        pageViewController.delegate = self
     }
     
     private lazy var tableView: UITableView = {
@@ -141,7 +110,7 @@ final class MainViewController: BaseViewController {
 
 
 // MARK: - UITableViewDelegate
-extension MainViewController: UITableViewDelegate {
+extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let sectionType = SectionType(rawValue: indexPath.section), sectionType == .welcome {
             return 200
@@ -158,8 +127,7 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
-// MARK: - TableViewDataSource
-extension MainViewController: UITableViewDataSource {
+extension DetailViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         dummy.count
@@ -201,30 +169,4 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return SectionType(rawValue: section)?.title
     }
-    
-}
-
-
-extension MainViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = viewControllers.firstIndex(of: viewController) else {return nil}
-        let previousIndex = index - 1
-        if previousIndex < 0 { return nil}
-        return viewControllers[previousIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-        guard let index = viewControllers.firstIndex(of: viewController) else {return nil}
-        let nextIndex = index + 1
-        if nextIndex == viewControllers.count { return nil}
-        return viewControllers[nextIndex]
-    }
-    
-    
-}
-
-extension MainViewController: UIPageViewControllerDelegate {
-    
-    
 }
