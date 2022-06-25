@@ -3,7 +3,7 @@ import SnapKit
 import SwiftUI
 
 
-fileprivate struct DummyModel {
+struct DummyModel {
     let title: String
     let progress: CGFloat
 }

@@ -13,6 +13,8 @@
 		980638412867299700765310 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980638402867299700765310 /* TaskTableViewCell.swift */; };
 		98AD084A2867556500FD4999 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD08492867556500FD4999 /* ProgressBarView.swift */; };
 		98AD084C28676D8200FD4999 /* RestTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD084B28676D8200FD4999 /* RestTimeLabel.swift */; };
+		98AD084E286789F500FD4999 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD084D286789F500FD4999 /* UITableViewCell+Extension.swift */; };
+		98AD08522867A20700FD4999 /* img-home.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 98AD08512867A20700FD4999 /* img-home.GIF */; };
 		AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CC28670F6B0068DA61 /* Router.swift */; };
 		AA35F1CF28670F810068DA61 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CE28670F810068DA61 /* Network.swift */; };
 		AA35F1D1286716B00068DA61 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1D0286716B00068DA61 /* Calendar.storyboard */; };
@@ -55,6 +57,8 @@
 		980638402867299700765310 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		98AD08492867556500FD4999 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		98AD084B28676D8200FD4999 /* RestTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimeLabel.swift; sourceTree = "<group>"; };
+		98AD084D286789F500FD4999 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		98AD08512867A20700FD4999 /* img-home.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "img-home.GIF"; sourceTree = "<group>"; };
 		AA35F1CC28670F6B0068DA61 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AA35F1CE28670F810068DA61 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		AA35F1D0286716B00068DA61 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				98AD08482867552400FD4999 /* TaskCell */,
+				98AD084D286789F500FD4999 /* UITableViewCell+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 		C3B2FC1D2866EDF80055B342 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				98AD08512867A20700FD4999 /* img-home.GIF */,
 				AA35F1E7286758960068DA61 /* Fonts */,
 				C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */,
 				C3B2FC082866EBCC0055B342 /* AppDelegate.swift */,
@@ -351,6 +357,7 @@
 				AA35F1DC286716F70068DA61 /* CustomCalendarCell.xib in Resources */,
 				AA35F1F6286763750068DA61 /* CalendarDetail.storyboard in Resources */,
 				AA35F1F0286758C70068DA61 /* NEXT ART_SemiBold.otf in Resources */,
+				98AD08522867A20700FD4999 /* img-home.GIF in Resources */,
 				AA35F1EF286758C50068DA61 /* NEXT ART_Regular.otf in Resources */,
 				C3B2FC122866EBCD0055B342 /* Assets.xcassets in Resources */,
 				AA35F1DD286716F70068DA61 /* CustomCalendar.xib in Resources */,
@@ -412,6 +419,7 @@
 			files = (
 				C3B2FC5128672A040055B342 /* TopTabBarView.swift in Sources */,
 				C3B2FC222866EF4D0055B342 /* BaseViewController.swift in Sources */,
+				98AD084E286789F500FD4999 /* UITableViewCell+Extension.swift in Sources */,
 				C3B2FC202866EEF00055B342 /* Constant.swift in Sources */,
 				980638412867299700765310 /* TaskTableViewCell.swift in Sources */,
 				98AD084A2867556500FD4999 /* ProgressBarView.swift in Sources */,
