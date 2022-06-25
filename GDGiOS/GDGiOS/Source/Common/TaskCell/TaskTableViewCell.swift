@@ -2,14 +2,24 @@ import UIKit
 import SnapKit
 
 
+fileprivate struct DummyModel {
+    let title: String
+    let progress: CGFloat
+}
 
 class TableViewController: UIViewController {
-    private let dummy = ["냉장고 정리", "재활용 쓰레기 버리기", "바닥 닦기", "창문 청소", "먼지 쓸기"]
+    
+    private let dummy: [DummyModel] = [
+            .init(title: "냉장고 정리", progress: 1.0),
+            .init(title: "재활용 쓰레기 버리기", progress: 0.1),
+            .init(title: "바닥 닦기", progress: 0.7),
+            .init(title: "창문 청소", progress: 0.3),
+            .init(title: "먼지 쓸기", progress: 0.5)
+        ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        
     }
     
     private func setupViews() {
@@ -45,6 +55,8 @@ extension TableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
+        let data = dummy[indexPath.row]
+        cell.updateViews(title: data.title, progress: data.progress)
         return cell
     }
 }
@@ -72,25 +84,28 @@ class TaskTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setupLayout() {
+    func updateViews(title: String, progress: CGFloat) {
+        self.titleLabel.text = title
+        progressBar.updateView(value: progress)
+    }
+    
+    private func setupLayout() {
         backgroundColor = .white
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOpacity = 0.5
-//        layer.shadowRadius = 10
-//        contentView.layer.cornerRadius = 10
-//        contentView.layer.masksToBounds = true
-        
+
         addSubview(shadowView)
         shadowView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(12)
+            make.edges.equalToSuperview().inset(14)
         }
         shadowView.backgroundColor = .white
-        shadowView.addShadow(offset: CGSize(width: 4, height: 4), opacity: 0.5)
+        shadowView.addShadow(offset: CGSize(width: 0, height: 0), opacity: 0.5, radius: 6.0)
         
         addSubview(contentsView)
+        contentsView.backgroundColor = .green
         contentsView.snp.makeConstraints { make in
-            make.edges.equalTo(shadowView)
+            make.edges.equalTo(shadowView).inset(-4)
         }
+        contentsView.layer.cornerRadius = 10
+        contentsView.layer.masksToBounds = true
         
         contentsView.addSubview(thumbnailImage)
         thumbnailImage.snp.makeConstraints { make in
@@ -99,8 +114,32 @@ class TaskTableViewCell: UITableViewCell {
             make.width.height.equalTo(50)
         }
         
-//        let textStackView = UIStackView(arrangedSubviews: [])
+        let descriptionStackView = makeStackView(views: [descriptionLabel, timeLabel], axis: .horizontal)
+        
+        let textContainerView = makeStackView(views: [descriptionStackView, titleLabel], axis: .vertical)
+        contentsView.addSubview(textContainerView)
+        textContainerView.snp.makeConstraints { make in
+            make.left.equalTo(thumbnailImage.snp.right).offset(16)
+            make.center.equalToSuperview()
+        }
+        
+        
+        contentsView.addSubview(progressBar)
+        progressBar.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(20)
+        }
     }
+    
+    
+    
+    private func makeStackView(views: [UIView], axis: NSLayoutConstraint.Axis) -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: views)
+        stackView.axis = axis
+        return stackView
+    }
+    
+    private let progressBar = ProgressBarView()
     
     private let contentsView: UIView = {
         let view = UIView()
@@ -111,7 +150,6 @@ class TaskTableViewCell: UITableViewCell {
         let view = UIView()
         return view
     }()
-    
     
     private let thumbnailImage: UIImageView = {
         let imageView = UIImageView()
@@ -124,6 +162,19 @@ class TaskTableViewCell: UITableViewCell {
         label.text = "title"
         return label
     }()
+    
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0번째 실행중이예요:)"
+        return label
+    }()
+    
+    private let timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "1시간 소요"
+        label.textAlignment = .left
+        return label
+    }()
 }
 
 
@@ -131,31 +182,17 @@ class TaskTableViewCell: UITableViewCell {
 // emptyView.layer.borderWidth = 1
 // emptyView.addShadow(location: .right)
 extension UIView {
-    enum VerticalLocation {
-        case bottom
-        case top
-        case left
-        case right
-    }
-
-    func addShadow(location: VerticalLocation, color: UIColor = .black, opacity: Float = 0.8, radius: CGFloat = 5.0) {
-        switch location {
-        case .bottom:
-             addShadow(offset: CGSize(width: 0, height: 10), color: color, opacity: opacity, radius: radius)
-        case .top:
-            addShadow(offset: CGSize(width: 0, height: -10), color: color, opacity: opacity, radius: radius)
-        case .left:
-            addShadow(offset: CGSize(width: -10, height: 0), color: color, opacity: opacity, radius: radius)
-        case .right:
-            addShadow(offset: CGSize(width: 10, height: 0), color: color, opacity: opacity, radius: radius)
-        }
-    }
-
-    func addShadow(offset: CGSize, color: UIColor = .black, opacity: Float = 0.1, radius: CGFloat = 3.0) {
+    func addShadow(offset: CGSize = CGSize(width: 0, height: 0), color: UIColor = .black, opacity: Float = 0.1, radius: CGFloat = 3.0) {
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOffset = offset
         self.layer.shadowOpacity = opacity
         self.layer.shadowRadius = radius
+    }
+}
+
+extension NSLayoutConstraint {
+    func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: self.firstItem!, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
     }
 }
