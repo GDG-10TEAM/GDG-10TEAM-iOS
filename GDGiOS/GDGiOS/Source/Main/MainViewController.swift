@@ -202,6 +202,15 @@ extension MainViewController: UITableViewDataSource {
         return SectionType(rawValue: section)?.title
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let sectionType = SectionType(rawValue: indexPath.section),
+              let sectionData = dummy[sectionType]  {
+            let photoVC = PhotoViewController()
+            let data = sectionData[indexPath.row]
+            photoVC.taskTitle = data.title
+            self.navigationController?.pushViewController(photoVC, animated: true)
+        }
+    }
 }
 
 
