@@ -144,6 +144,10 @@ extension MainViewController: UITableViewDataSource {
         return dummy[sectionType]?.count ?? 0
     }
     
+    @objc func touchedEditButton() {
+        print("move edit page")
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let sectionType = SectionType(rawValue: indexPath.section),
               let sectionData = dummy[sectionType] else {
@@ -156,6 +160,8 @@ extension MainViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.selectionStyle = .none
+            cell.titleView.editButton.addTarget(self, action: #selector(touchedEditButton), for: .touchUpInside)
+            cell.contentView.isUserInteractionEnabled = false
             return cell
         case .activeTasks,.doneTasks:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath) as? TaskTableViewCell else {
@@ -184,10 +190,11 @@ final class HomeTitleCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    let titleView = HomeTitleView()
+    
     private func setupViews() {
-        let view = HomeTitleView()
-        self.addSubview(view)
-        view.snp.makeConstraints { make in
+        self.addSubview(titleView)
+        titleView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
@@ -205,8 +212,14 @@ final class HomeTitleView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    let editButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("수정하기", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
     private func setupViews() {
-        
         let imageView = GIFImageView()
         imageView.animate(withGIFNamed: "img-home") // 재생시작
         addSubview(imageView)
@@ -214,10 +227,8 @@ final class HomeTitleView: UIView {
             make.edges.equalToSuperview()
         }
         
-        
-
         addSubview(titleLabel)
-        addSubview(button)
+        addSubview(editButton)
         
         let sideMargin = 22
         
@@ -226,7 +237,7 @@ final class HomeTitleView: UIView {
             make.left.equalToSuperview().offset(sideMargin)
         }
         
-        button.snp.makeConstraints { make in
+        editButton.snp.makeConstraints { make in
             make.bottom.equalTo(titleLabel.snp.bottom)
             make.right.equalToSuperview().inset(sideMargin)
         }
@@ -241,13 +252,6 @@ final class HomeTitleView: UIView {
 """
         label.font = UIFont.boldSystemFont(ofSize: 22)
         return label
-    }()
-    
-    private let button: UIButton = {
-        let button = UIButton()
-        button.setTitle("수정하기", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
     }()
 }
 
