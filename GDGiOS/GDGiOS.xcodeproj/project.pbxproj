@@ -11,6 +11,7 @@
 		980638392866FBA500765310 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980638382866FBA500765310 /* CalendarViewController.swift */; };
 		9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806383B2866FE6F00765310 /* TabbarItem.swift */; };
 		980638412867299700765310 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980638402867299700765310 /* TaskTableViewCell.swift */; };
+		98AD084A2867556500FD4999 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD08492867556500FD4999 /* ProgressBarView.swift */; };
 		AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CC28670F6B0068DA61 /* Router.swift */; };
 		AA35F1CF28670F810068DA61 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1CE28670F810068DA61 /* Network.swift */; };
 		AA35F1D1286716B00068DA61 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1D0286716B00068DA61 /* Calendar.storyboard */; };
@@ -43,6 +44,7 @@
 		980638382866FBA500765310 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		9806383B2866FE6F00765310 /* TabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItem.swift; sourceTree = "<group>"; };
 		980638402867299700765310 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		98AD08492867556500FD4999 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		AA35F1CC28670F6B0068DA61 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AA35F1CE28670F810068DA61 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		AA35F1D0286716B00068DA61 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -121,9 +123,18 @@
 		9806383F286727D200765310 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				980638402867299700765310 /* TaskTableViewCell.swift */,
+				98AD08482867552400FD4999 /* TaskCell */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		98AD08482867552400FD4999 /* TaskCell */ = {
+			isa = PBXGroup;
+			children = (
+				980638402867299700765310 /* TaskTableViewCell.swift */,
+				98AD08492867556500FD4999 /* ProgressBarView.swift */,
+			);
+			path = TaskCell;
 			sourceTree = "<group>";
 		};
 		AA35F1CB28670F5B0068DA61 /* Network */ = {
@@ -354,6 +365,7 @@
 				C3B2FC222866EF4D0055B342 /* BaseViewController.swift in Sources */,
 				C3B2FC202866EEF00055B342 /* Constant.swift in Sources */,
 				980638412867299700765310 /* TaskTableViewCell.swift in Sources */,
+				98AD084A2867556500FD4999 /* ProgressBarView.swift in Sources */,
 				C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */,
 				C3B2FC5328672C9E0055B342 /* Color.swift in Sources */,
 				980638362866F8DB00765310 /* RootTabBarController.swift in Sources */,
