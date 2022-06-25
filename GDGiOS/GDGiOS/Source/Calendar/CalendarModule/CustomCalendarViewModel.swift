@@ -18,6 +18,8 @@ struct CustomCalendarViewModelInput {
 
 struct CustomCalendarViewModelOutput {
     let yearMonthText: Driver<String>
+    let beforeMonthText: Driver<String>
+    let nextMonthText: Driver<String>
     let currentMonth: Driver<String>
     let selectedDate: Driver<Date?>
     let cellDataSource: Driver<[CustomCalendarCellDataSource]>
@@ -35,6 +37,8 @@ final class CustomCalendarViewModel {
     private let _nextMonth = BehaviorSubject<Void?>(value: nil)
     
     private let _yearMonthText = BehaviorSubject<String>(value: "")
+    private let _beforeMonthText = BehaviorSubject<String>(value: "")
+    private let _nextMonthText = BehaviorSubject<String>(value: "")
     private let _currentMonth = BehaviorSubject<String>(value: "")
     private let _selectedDate = BehaviorSubject<Date?>(value: nil)
     private let _cellDataSource = BehaviorSubject<[CustomCalendarCellDataSource]>(value: [])
@@ -54,6 +58,8 @@ final class CustomCalendarViewModel {
         )
         self.output = CustomCalendarViewModelOutput(
             yearMonthText: _yearMonthText.asDriver(onErrorJustReturn: ""),
+            beforeMonthText: _beforeMonthText.asDriver(onErrorJustReturn: ""),
+            nextMonthText: _nextMonthText.asDriver(onErrorJustReturn: ""),
             currentMonth: _currentMonth.asDriver(onErrorJustReturn: ""),
             selectedDate: _selectedDate.asDriver(onErrorJustReturn: nil),
             cellDataSource: _cellDataSource.asDriver(onErrorJustReturn: [])
@@ -97,8 +103,14 @@ final class CustomCalendarViewModel {
         let firstWeekday = 2 - _calendar.component(.weekday, from: firstDayOfMonth)
         
         let currentMonth = self._components.month ?? 12
+        let beforeMonth = currentMonth - 1 <= 0 ? 12 : currentMonth - 1
+        let nextMonth = currentMonth + 1 > 12 ? 1 : currentMonth + 1
         self._yearMonthText
             .onNext(String(currentMonth).count == 1 ? "0\(String(currentMonth))" : String(currentMonth))
+        self._beforeMonthText
+            .onNext(String(beforeMonth).count == 1 ? "0\(String(beforeMonth))" : String(beforeMonth))
+        self._nextMonthText
+            .onNext(String(nextMonth).count == 1 ? "0\(String(nextMonth))" : String(nextMonth))
         
         var cellModels = [CustomCalendarCellModel]()
         var count = 0
