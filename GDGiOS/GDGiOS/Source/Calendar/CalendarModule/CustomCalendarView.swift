@@ -20,6 +20,8 @@ final class CustomCalendarView: UIView {
     private let xibName = "CustomCalendar"
     
     @IBOutlet weak var yearMonthLabel: UILabel!
+    @IBOutlet weak var beforeMonthLabel: UILabel!
+    @IBOutlet weak var nextMonthLabel: UILabel!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var calendarHeightConstraints: NSLayoutConstraint!
     
@@ -59,6 +61,8 @@ final class CustomCalendarView: UIView {
         self._bindCalendarCollectionView()
         self._bindYearMonthText()
         self._bindSelectedDate()
+        self._bindBeforeMonthText()
+        self._bindNextMonthText()
     }
     
     private func _configureBase() {
@@ -117,6 +121,18 @@ final class CustomCalendarView: UIView {
             .drive(onNext: { [weak self] date in
                 self?.delegate?.didSelectedDate(date: date)
             })
+            .disposed(by: disposeBag)
+    }
+    
+    private func _bindBeforeMonthText() {
+        self.viewModel.output.beforeMonthText
+            .drive(self.beforeMonthLabel.rx.text)
+            .disposed(by: disposeBag)
+    }
+    
+    private func _bindNextMonthText() {
+        self.viewModel.output.nextMonthText
+            .drive(self.nextMonthLabel.rx.text)
             .disposed(by: disposeBag)
     }
 }

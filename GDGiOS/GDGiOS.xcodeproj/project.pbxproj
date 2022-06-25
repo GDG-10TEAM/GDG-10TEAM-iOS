@@ -23,6 +23,11 @@
 		AA35F1DE286716F70068DA61 /* CustomCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1D8286716F70068DA61 /* CustomCalendarCell.swift */; };
 		AA35F1E1286732B60068DA61 /* TaskEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F1E0286732B60068DA61 /* TaskEditViewController.swift */; };
 		AA35F1E3286732BD0068DA61 /* TaskEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1E2286732BD0068DA61 /* TaskEdit.storyboard */; };
+		AA35F1ED286758C10068DA61 /* NEXT ART_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1E8286758AD0068DA61 /* NEXT ART_Bold.otf */; };
+		AA35F1EE286758C30068DA61 /* NEXT ART_Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1E9286758AD0068DA61 /* NEXT ART_Light.otf */; };
+		AA35F1EF286758C50068DA61 /* NEXT ART_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EC286758AD0068DA61 /* NEXT ART_Regular.otf */; };
+		AA35F1F0286758C70068DA61 /* NEXT ART_SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EB286758AD0068DA61 /* NEXT ART_SemiBold.otf */; };
+		AA35F1F1286758C90068DA61 /* NEXT ART_Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EA286758AD0068DA61 /* NEXT ART_Thin.otf */; };
 		C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC082866EBCC0055B342 /* AppDelegate.swift */; };
 		C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */; };
 		C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */; };
@@ -56,6 +61,11 @@
 		AA35F1D8286716F70068DA61 /* CustomCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalendarCell.swift; sourceTree = "<group>"; };
 		AA35F1E0286732B60068DA61 /* TaskEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditViewController.swift; sourceTree = "<group>"; };
 		AA35F1E2286732BD0068DA61 /* TaskEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskEdit.storyboard; sourceTree = "<group>"; };
+		AA35F1E8286758AD0068DA61 /* NEXT ART_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Bold.otf"; sourceTree = "<group>"; };
+		AA35F1E9286758AD0068DA61 /* NEXT ART_Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Light.otf"; sourceTree = "<group>"; };
+		AA35F1EA286758AD0068DA61 /* NEXT ART_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Thin.otf"; sourceTree = "<group>"; };
+		AA35F1EB286758AD0068DA61 /* NEXT ART_SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_SemiBold.otf"; sourceTree = "<group>"; };
+		AA35F1EC286758AD0068DA61 /* NEXT ART_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Regular.otf"; sourceTree = "<group>"; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +178,18 @@
 			path = TaskEditView;
 			sourceTree = "<group>";
 		};
+		AA35F1E7286758960068DA61 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AA35F1E8286758AD0068DA61 /* NEXT ART_Bold.otf */,
+				AA35F1E9286758AD0068DA61 /* NEXT ART_Light.otf */,
+				AA35F1EC286758AD0068DA61 /* NEXT ART_Regular.otf */,
+				AA35F1EB286758AD0068DA61 /* NEXT ART_SemiBold.otf */,
+				AA35F1EA286758AD0068DA61 /* NEXT ART_Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		C3B2FBFC2866EBCC0055B342 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +237,7 @@
 		C3B2FC1D2866EDF80055B342 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AA35F1E7286758960068DA61 /* Fonts */,
 				C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */,
 				C3B2FC082866EBCC0055B342 /* AppDelegate.swift */,
 				C3B2FC112866EBCD0055B342 /* Assets.xcassets */,
@@ -304,10 +327,15 @@
 			files = (
 				AA35F1D1286716B00068DA61 /* Calendar.storyboard in Resources */,
 				C3B2FC152866EBCD0055B342 /* LaunchScreen.storyboard in Resources */,
+				AA35F1EE286758C30068DA61 /* NEXT ART_Light.otf in Resources */,
 				AA35F1DC286716F70068DA61 /* CustomCalendarCell.xib in Resources */,
+				AA35F1F0286758C70068DA61 /* NEXT ART_SemiBold.otf in Resources */,
+				AA35F1EF286758C50068DA61 /* NEXT ART_Regular.otf in Resources */,
 				C3B2FC122866EBCD0055B342 /* Assets.xcassets in Resources */,
 				AA35F1DD286716F70068DA61 /* CustomCalendar.xib in Resources */,
+				AA35F1F1286758C90068DA61 /* NEXT ART_Thin.otf in Resources */,
 				AA35F1E3286732BD0068DA61 /* TaskEdit.storyboard in Resources */,
+				AA35F1ED286758C10068DA61 /* NEXT ART_Bold.otf in Resources */,
 				C3B2FC102866EBCC0055B342 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

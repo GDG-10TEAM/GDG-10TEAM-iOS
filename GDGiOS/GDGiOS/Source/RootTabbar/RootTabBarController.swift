@@ -24,11 +24,12 @@ class RootTabBarController: UITabBarController {
         let calendarStoryboard = UIStoryboard(name: StoryBoard.calendar, bundle: .main)
         let calenderViewController = calendarStoryboard
             .instantiateViewController(withIdentifier: CalendarViewController.className)
+        let calenderNavigation = UINavigationController(rootViewController: calenderViewController)
         let calendarTabbarItem = TabbarItem.calendar
-        calenderViewController.title = calendarTabbarItem.title
-        calenderViewController.tabBarItem = UITabBarItem(title: nil, image: calendarTabbarItem.image, tag: 1)
+        calenderNavigation.title = calendarTabbarItem.title
+        calenderNavigation.tabBarItem = UITabBarItem(title: nil, image: calendarTabbarItem.image, tag: 1)
         
-        self.viewControllers = [mainViewController, calenderViewController]
+        self.viewControllers = [mainViewController, calenderNavigation]
     }
 }
 
