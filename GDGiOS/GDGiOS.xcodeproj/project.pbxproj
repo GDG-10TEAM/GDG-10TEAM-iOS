@@ -28,6 +28,7 @@
 		AA35F1EF286758C50068DA61 /* NEXT ART_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EC286758AD0068DA61 /* NEXT ART_Regular.otf */; };
 		AA35F1F0286758C70068DA61 /* NEXT ART_SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EB286758AD0068DA61 /* NEXT ART_SemiBold.otf */; };
 		AA35F1F1286758C90068DA61 /* NEXT ART_Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA35F1EA286758AD0068DA61 /* NEXT ART_Thin.otf */; };
+		C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */; };
 		C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC082866EBCC0055B342 /* AppDelegate.swift */; };
 		C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */; };
 		C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */; };
@@ -66,6 +67,7 @@
 		AA35F1EA286758AD0068DA61 /* NEXT ART_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Thin.otf"; sourceTree = "<group>"; };
 		AA35F1EB286758AD0068DA61 /* NEXT ART_SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_SemiBold.otf"; sourceTree = "<group>"; };
 		AA35F1EC286758AD0068DA61 /* NEXT ART_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXT ART_Regular.otf"; sourceTree = "<group>"; };
+		C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskViewController.swift; sourceTree = "<group>"; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				C3B2FC4E286729DE0055B342 /* PhotoViewController.swift */,
 				C3B2FC5028672A040055B342 /* TopTabBarView.swift */,
+				C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				AA35F1CF28670F810068DA61 /* Network.swift in Sources */,
 				C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */,
 				980638392866FBA500765310 /* CalendarViewController.swift in Sources */,
+				C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */,
 				AA35F1D9286716F70068DA61 /* CustomCalendarViewModel.swift in Sources */,
 				AA35F1E1286732B60068DA61 /* TaskEditViewController.swift in Sources */,
 				9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */,

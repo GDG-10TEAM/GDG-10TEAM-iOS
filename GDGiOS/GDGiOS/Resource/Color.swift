@@ -26,4 +26,6 @@ extension UIColor {
     class var darkGrayBlack: UIColor { UIColor(hex: 0x585858)}
     class var black: UIColor { UIColor(hex: 0x222222)}
     class var gray : UIColor { UIColor(hex: 0xEBEBEB)}
+    class var darkGray : UIColor { UIColor(hex: 0x9D9D9D)}
+    class var backgroundColor : UIColor { UIColor(hex: 0xEFEFEF)}
 }

@@ -21,7 +21,6 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     var statusBarView: UIView!
 
     var naviView = UIView()
-    let selectedStackView = TopTabBarView(selectedIndex: 0)
     
     var titleLabel = UILabel()
     var timeLabel = UILabel()
@@ -40,8 +39,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        initNaviBar()
-        initStatusBar()
+        setNaviBar()
         initUIComponent()
     }
     
@@ -63,63 +61,17 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     //MARK: UI
-    func initNaviBar(){
-        naviView = UIView().then{
-            $0.backgroundColor = .white
-        }
-        self.view.addSubview(naviView)
-        naviView.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            $0.height.equalTo(50)
-        }
-        let naviTitle = UILabel().then{
-            $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-            $0.textColor = .black
-            $0.text = "테스크 완료하기"
-        }
-        naviView.addSubview(naviTitle)
-        naviTitle.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
-        
-        let naviBtn = UIButton().then{
-            $0.setImage(UIImage(named: "icon_back"), for: .normal)
-        }
-        naviView.addSubview(naviBtn)
-        naviBtn.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(24)
-            $0.top.equalToSuperview().inset(19)
-            $0.height.equalTo(12)
-            $0.width.equalTo(5)
-        }
-        naviBtn.addTarget(self, action: #selector(clickedBackBtn), for: .touchUpInside)
-    }
-    
-    func initStatusBar(){
+    func setNaviBar(){
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.tintColor = .darkGray
+        self.title = "테스크 완료하기"
         self.view.backgroundColor = .white
-        if #available(iOS 13.0, *) {
-            let statusBarFrame = UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame
-            statusBarView = UIView(frame: statusBarFrame ?? .zero)
-            self.view.addSubview(statusBarView)
-        } else {
-            statusBarView = UIApplication.shared.value(forKey: "statusBar") as? UIView
-        }
-        statusBarView?.backgroundColor = .white
+        let backBtn = UIBarButtonItem(image: UIImage(named: "icon_back"), style: .plain, target: self, action: #selector(clickedBackBtn))
+        backBtn.title = ""
+        self.navigationItem.leftBarButtonItem = backBtn
     }
     
     func initUIComponent(){
-        self.view.addSubview(selectedStackView)
-        selectedStackView.snp.makeConstraints {
-            $0.top.equalTo(naviView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(42)
-        }
-
-        for subview in selectedStackView.btnStackView.arrangedSubviews {
-            (subview as! UIButton).addTarget(self, action: #selector(clickedTopTabBarBtn), for: .touchUpInside)
-        }
         // 태그 라벨
         tagLabel = UILabel().then{
             $0.layer.cornerRadius = 10
@@ -133,7 +85,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
         
         self.view.addSubview(tagLabel)
         tagLabel.snp.makeConstraints{
-            $0.top.equalTo(naviView.snp.bottom).offset(30)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(30)
             $0.leading.equalTo(22)
             $0.height.equalTo(21)
             $0.width.equalTo(40)
@@ -270,14 +222,12 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
     
     @objc func clickedNextPageBtn(_ sender: UIButton){
         //TODO: 다음 페이지로
+        let completedVC = CompletedTaskViewController()
+        self.navigationController?.pushViewController(completedVC, animated: true)
     }
     
     @objc func clickedBackBtn(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc func clickedTopTabBarBtn(_ sender: UIButton){
-        selectedStackView.changeView(selectedIndex: sender.tag)
     }
     
     @objc func btnCaptureImageFromCamera(_ sender: UIButton){
@@ -318,7 +268,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
         self.dismiss(animated: true, completion: nil)
     }
     
-    // 경고 창 출력 함수
+    // 경고창 출력 함수
     func myAlert(_ title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default , handler: nil)
