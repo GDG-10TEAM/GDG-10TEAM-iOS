@@ -97,6 +97,13 @@ class TaskTableViewCell: UITableViewCell {
         progressBar.updateView(value: progress)
     }
     
+    func display(cellModel: TaskCellModel) {
+        self.titleLabel.text = cellModel.title
+        progressBar.updateView(value: cellModel.progress, color: cellModel.calendarTaskModel.color)
+        
+        thumbnailImage.image = cellModel.calendarTaskModel.image
+    }
+    
     private func setupLayout() {
         backgroundColor = .white
 
@@ -158,7 +165,7 @@ class TaskTableViewCell: UITableViewCell {
     
     private let thumbnailImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .gray
+        imageView.backgroundColor = .clear
         return imageView
     }()
     

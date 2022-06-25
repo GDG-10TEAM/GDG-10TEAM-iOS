@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Gifu
 
 final class MainViewController: BaseViewController {
 
@@ -45,6 +44,14 @@ final class MainViewController: BaseViewController {
             
         ]
     
+    
+    var currentIndex : Int {
+           guard let vc = viewControllers.first else { return 0 }
+           return viewControllers.firstIndex(of: vc) ?? 0
+       }
+    
+    private let viewControllers: [UIViewController] = [DetailViewController(), DetailViewController()]
+    
     private let topMenuView = TopTabBarView(selectedIndex: 0)
     private var naviView = UIView()
     
@@ -52,6 +59,19 @@ final class MainViewController: BaseViewController {
         super.viewDidLoad()
         initNaviBar()
         setupViews()
+        
+        DefaultNetworkService.instance.request(
+            router: MainRoutor.mainFetch
+        ) { [weak self] (response: [MainDTO]) in
+            print(response)
+        }
+
+    }
+    
+    @objc func touchedEditButton() {
+        print("move edit page")
+    
+        EditViewController.editInitializer(viewController: self)
     }
     
     @objc func clickedTopTabBarBtn(_ sender: UIButton){
@@ -93,11 +113,18 @@ final class MainViewController: BaseViewController {
             (subview as! UIButton).addTarget(self, action: #selector(clickedTopTabBarBtn), for: .touchUpInside)
         }
         
+        // 여기서 부터 페이징 함
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topMenuView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
+        
+        let detailViewController = DetailViewController()
+        let pageViewController = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal)
+        pageViewController.setViewControllers([detailViewController], direction: .forward, animated: false)
+        pageViewController.dataSource = self
+//        pageViewController.delegate = self
     }
     
     private lazy var tableView: UITableView = {
@@ -131,6 +158,7 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - TableViewDataSource
 extension MainViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -142,10 +170,6 @@ extension MainViewController: UITableViewDataSource {
             return 0
         }
         return dummy[sectionType]?.count ?? 0
-    }
-    
-    @objc func touchedEditButton() {
-        print("move edit page")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -177,92 +201,30 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return SectionType(rawValue: section)?.title
     }
-}
-
-final class HomeTitleCell: UITableViewCell {
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    let titleView = HomeTitleView()
-    
-    private func setupViews() {
-        self.addSubview(titleView)
-        titleView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-    }
 }
 
 
-final class HomeTitleView: UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
+extension MainViewController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = viewControllers.firstIndex(of: viewController) else {return nil}
+        let previousIndex = index - 1
+        if previousIndex < 0 { return nil}
+        return viewControllers[previousIndex]
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        guard let index = viewControllers.firstIndex(of: viewController) else {return nil}
+        let nextIndex = index + 1
+        if nextIndex == viewControllers.count { return nil}
+        return viewControllers[nextIndex]
     }
     
-    let editButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("수정하기", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
-    }()
     
-    private func setupViews() {
-        let imageView = GIFImageView()
-        imageView.animate(withGIFNamed: "img-home") // 재생시작
-        addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        addSubview(titleLabel)
-        addSubview(editButton)
-        
-        let sideMargin = 22
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(25)
-            make.left.equalToSuperview().offset(sideMargin)
-        }
-        
-        editButton.snp.makeConstraints { make in
-            make.bottom.equalTo(titleLabel.snp.bottom)
-            make.right.equalToSuperview().inset(sideMargin)
-        }
-    }
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 2
-        label.text = """
-오늘의 집생을
-시작해 볼까요
-"""
-        label.font = UIFont.boldSystemFont(ofSize: 22)
-        return label
-    }()
 }
 
-//final class EditButton: UIButton {
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//}
+extension MainViewController: UIPageViewControllerDelegate {
+    
+    
+}

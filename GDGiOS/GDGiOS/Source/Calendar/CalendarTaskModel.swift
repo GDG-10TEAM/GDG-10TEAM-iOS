@@ -24,4 +24,19 @@ enum CalendarTaskModel {
             return UIColor.mainGreen
         }
     }
+    
+    var image: UIImage? {
+        switch self {
+        case .clean:
+            return UIImage(named: "cha_01_01")
+        case .wash:
+            return UIImage(named: "cha_02_01")
+        case .kitchen:
+            return UIImage(named: "cha_03_01")
+        case .friend:
+            return UIImage(named: "cha_04_01")
+        case .payment:
+            return UIImage(named: "cha_05_01")
+        }
+    }
 }

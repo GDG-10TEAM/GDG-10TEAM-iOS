@@ -20,10 +20,11 @@ final class ProgressBarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(value: CGFloat) {
+    func updateView(value: CGFloat, color: UIColor? = nil) {
         let newConstraint = widthConstraint.constraintWithMultiplier(value)
         removeConstraint(widthConstraint)
         addConstraint(newConstraint)
+        bar.backgroundColor = color ?? UIColor(red: 255/255, green: 96/255, blue: 96/255, alpha: 1.0)
         layoutIfNeeded()
         widthConstraint = newConstraint
     }

@@ -11,6 +11,8 @@
 		980638392866FBA500765310 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980638382866FBA500765310 /* CalendarViewController.swift */; };
 		9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806383B2866FE6F00765310 /* TabbarItem.swift */; };
 		980638412867299700765310 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980638402867299700765310 /* TaskTableViewCell.swift */; };
+		9868D66B2867B58A005D6CDB /* HomeTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9868D66A2867B58A005D6CDB /* HomeTitleCell.swift */; };
+		9894AB4B2867BEB1007AE286 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894AB4A2867BEB0007AE286 /* DetailViewController.swift */; };
 		98AD084A2867556500FD4999 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD08492867556500FD4999 /* ProgressBarView.swift */; };
 		98AD084C28676D8200FD4999 /* RestTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD084B28676D8200FD4999 /* RestTimeLabel.swift */; };
 		98AD084E286789F500FD4999 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD084D286789F500FD4999 /* UITableViewCell+Extension.swift */; };
@@ -40,6 +42,9 @@
 		AA35F205286795CE0068DA61 /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F204286795CE0068DA61 /* Edit.storyboard */; };
 		AA35F20A2867AB5E0068DA61 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F2092867AB5E0068DA61 /* SettingViewController.swift */; };
 		AA35F20C2867AB700068DA61 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F20B2867AB700068DA61 /* Setting.storyboard */; };
+		AA35F20E2867BAF00068DA61 /* TaskCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F20D2867BAF00068DA61 /* TaskCellDataSource.swift */; };
+		AA35F2102867C5290068DA61 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F20F2867C5290068DA61 /* MainRouter.swift */; };
+		AA35F2122867C56D0068DA61 /* MainDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F2112867C56D0068DA61 /* MainDTO.swift */; };
 		C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */; };
 		C3234B482867BA1E0029A645 /* img-splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = C3234B472867BA1E0029A645 /* img-splash.gif */; };
 		C3234B4A2867BA6E0029A645 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B492867BA6E0029A645 /* SplashViewController.swift */; };
@@ -64,6 +69,8 @@
 		980638382866FBA500765310 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		9806383B2866FE6F00765310 /* TabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItem.swift; sourceTree = "<group>"; };
 		980638402867299700765310 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		9868D66A2867B58A005D6CDB /* HomeTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTitleCell.swift; sourceTree = "<group>"; };
+		9894AB4A2867BEB0007AE286 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		98AD08492867556500FD4999 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		98AD084B28676D8200FD4999 /* RestTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimeLabel.swift; sourceTree = "<group>"; };
 		98AD084D286789F500FD4999 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -93,6 +100,9 @@
 		AA35F204286795CE0068DA61 /* Edit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		AA35F2092867AB5E0068DA61 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AA35F20B2867AB700068DA61 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		AA35F20D2867BAF00068DA61 /* TaskCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellDataSource.swift; sourceTree = "<group>"; };
+		AA35F20F2867C5290068DA61 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		AA35F2112867C56D0068DA61 /* MainDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDTO.swift; sourceTree = "<group>"; };
 		C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskViewController.swift; sourceTree = "<group>"; };
 		C3234B472867BA1E0029A645 /* img-splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "img-splash.gif"; sourceTree = "<group>"; };
 		C3234B492867BA6E0029A645 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -170,12 +180,29 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		9868D6692867B57C005D6CDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9868D66A2867B58A005D6CDB /* HomeTitleCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9894AB492867BE94007AE286 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9894AB4A2867BEB0007AE286 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		98AD08482867552400FD4999 /* TaskCell */ = {
 			isa = PBXGroup;
 			children = (
 				980638402867299700765310 /* TaskTableViewCell.swift */,
 				98AD08492867556500FD4999 /* ProgressBarView.swift */,
 				98AD084B28676D8200FD4999 /* RestTimeLabel.swift */,
+				AA35F20D2867BAF00068DA61 /* TaskCellDataSource.swift */,
 			);
 			path = TaskCell;
 			sourceTree = "<group>";
@@ -283,6 +310,7 @@
 		C3B2FC1C2866EDF10055B342 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9894AB492867BE94007AE286 /* Detail */,
 				AA35F2082867AB520068DA61 /* Setting */,
 				AA35F1F92867751D0068DA61 /* Edit */,
 				C3B2FC4D286729CB0055B342 /* Photo */,
@@ -318,8 +346,11 @@
 		C3B2FC242866F3990055B342 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9868D6692867B57C005D6CDB /* View */,
 				C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */,
 				C3B2FC0E2866EBCC0055B342 /* Main.storyboard */,
+				AA35F20F2867C5290068DA61 /* MainRouter.swift */,
+				AA35F2112867C56D0068DA61 /* MainDTO.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -474,21 +505,26 @@
 				C3B2FC5328672C9E0055B342 /* Color.swift in Sources */,
 				C3234B4A2867BA6E0029A645 /* SplashViewController.swift in Sources */,
 				980638362866F8DB00765310 /* RootTabBarController.swift in Sources */,
+				9868D66B2867B58A005D6CDB /* HomeTitleCell.swift in Sources */,
 				AA35F20328678CB30068DA61 /* EditModel.swift in Sources */,
 				AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */,
 				AA35F1CF28670F810068DA61 /* Network.swift in Sources */,
+				AA35F2102867C5290068DA61 /* MainRouter.swift in Sources */,
 				AA35F1F42867636F0068DA61 /* CalendarDetailViewController.swift in Sources */,
 				C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */,
 				980638392866FBA500765310 /* CalendarViewController.swift in Sources */,
 				C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */,
 				AA35F1D9286716F70068DA61 /* CustomCalendarViewModel.swift in Sources */,
+				9894AB4B2867BEB1007AE286 /* DetailViewController.swift in Sources */,
 				AA35F1F828676BE90068DA61 /* CalendarTaskModel.swift in Sources */,
+				AA35F2122867C56D0068DA61 /* MainDTO.swift in Sources */,
 				AA35F201286778CB0068DA61 /* EditCell.swift in Sources */,
 				AA35F1E1286732B60068DA61 /* TaskEditViewController.swift in Sources */,
 				AA35F1FB286775290068DA61 /* EditViewController.swift in Sources */,
 				9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */,
 				AA35F1DE286716F70068DA61 /* CustomCalendarCell.swift in Sources */,
 				C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */,
+				AA35F20E2867BAF00068DA61 /* TaskCellDataSource.swift in Sources */,
 				98AD084C28676D8200FD4999 /* RestTimeLabel.swift in Sources */,
 				C3B2FC4F286729DE0055B342 /* PhotoViewController.swift in Sources */,
 				AA35F1DB286716F70068DA61 /* CustomCalendarModel.swift in Sources */,
