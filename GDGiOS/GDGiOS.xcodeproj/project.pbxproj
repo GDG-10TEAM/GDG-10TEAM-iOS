@@ -40,6 +40,7 @@
 		AA35F205286795CE0068DA61 /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F204286795CE0068DA61 /* Edit.storyboard */; };
 		AA35F20A2867AB5E0068DA61 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F2092867AB5E0068DA61 /* SettingViewController.swift */; };
 		AA35F20C2867AB700068DA61 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F20B2867AB700068DA61 /* Setting.storyboard */; };
+		AA35F20E2867BAF00068DA61 /* TaskCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F20D2867BAF00068DA61 /* TaskCellDataSource.swift */; };
 		C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */; };
 		C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC082866EBCC0055B342 /* AppDelegate.swift */; };
 		C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */; };
@@ -91,6 +92,7 @@
 		AA35F204286795CE0068DA61 /* Edit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		AA35F2092867AB5E0068DA61 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AA35F20B2867AB700068DA61 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		AA35F20D2867BAF00068DA61 /* TaskCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellDataSource.swift; sourceTree = "<group>"; };
 		C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskViewController.swift; sourceTree = "<group>"; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				980638402867299700765310 /* TaskTableViewCell.swift */,
 				98AD08492867556500FD4999 /* ProgressBarView.swift */,
 				98AD084B28676D8200FD4999 /* RestTimeLabel.swift */,
+				AA35F20D2867BAF00068DA61 /* TaskCellDataSource.swift */,
 			);
 			path = TaskCell;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				9806383C2866FE6F00765310 /* TabbarItem.swift in Sources */,
 				AA35F1DE286716F70068DA61 /* CustomCalendarCell.swift in Sources */,
 				C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */,
+				AA35F20E2867BAF00068DA61 /* TaskCellDataSource.swift in Sources */,
 				98AD084C28676D8200FD4999 /* RestTimeLabel.swift in Sources */,
 				C3B2FC4F286729DE0055B342 /* PhotoViewController.swift in Sources */,
 				AA35F1DB286716F70068DA61 /* CustomCalendarModel.swift in Sources */,

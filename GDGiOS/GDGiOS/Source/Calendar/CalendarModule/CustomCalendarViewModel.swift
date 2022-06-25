@@ -50,6 +50,17 @@ final class CustomCalendarViewModel {
     private var _components = DateComponents()
     private var _beforeComponents = DateComponents()
     
+    let mockList: [[CalendarTaskModel]] = [
+        [.clean, .wash, .kitchen, .friend, .payment],
+        [.clean, .wash, .kitchen, .payment],
+        [.clean, .kitchen, .payment],
+        [.wash, .kitchen, .friend],
+        [],
+        [.wash, .kitchen, .payment],
+        [.clean, .wash, .payment],
+        [.wash, .payment],
+    ]
+    
     init() {
         self.input = CustomCalendarViewModelInput(
             selectedItem: _selectedItem.asObserver(),
@@ -123,7 +134,7 @@ final class CustomCalendarViewModel {
                     identity: UUID().uuidString,
                     isSunDay: false,
                     isCurrentMonth: false,
-                    calendarTaskModel: [],
+                    calendarTaskModel: mockList[Int.random(in: 0...7)],
                     day: daysCountBeforeMonth + day,
                     date: _calendar.date(from: tempComponents))
                 )
@@ -132,7 +143,7 @@ final class CustomCalendarViewModel {
                     identity: UUID().uuidString,
                     isSunDay: count % 7 == 0 ? true : false,
                     isCurrentMonth: true,
-                    calendarTaskModel: [],
+                    calendarTaskModel: mockList[Int.random(in: 0...7)],
                     day: day,
                     date: _calendar.date(from: tempComponents))
                 )
@@ -151,7 +162,7 @@ final class CustomCalendarViewModel {
                 identity: UUID().uuidString,
                 isSunDay: false,
                 isCurrentMonth: true,
-                calendarTaskModel: [],
+                calendarTaskModel: mockList[Int.random(in: 0...7)],
                 day: nextDay,
                 date: _calendar.date(from: tempComponents))
             )
