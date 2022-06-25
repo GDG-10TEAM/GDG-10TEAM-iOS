@@ -45,6 +45,9 @@ final class EditViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        let backBtn = UIBarButtonItem(image: UIImage(named: "icon_back"), style: .plain, target: self, action: #selector(backBarButtonTap))
+        backBtn.title = ""
+        self.navigationItem.leftBarButtonItem = backBtn
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -129,6 +132,10 @@ final class EditViewController: BaseViewController {
     
     @objc func clickedTopTabBarBtn(_ sender: UIButton){
         selectedStackView.changeView(selectedIndex: sender.tag)
+    }
+    
+    @objc func backBarButtonTap(_ sender: UIButton){
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func completeAction(_ sender: Any) {

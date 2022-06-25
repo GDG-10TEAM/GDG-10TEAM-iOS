@@ -68,6 +68,14 @@ final class MainViewController: BaseViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     @objc func touchedEditButton() {
         print("move edit page")
     

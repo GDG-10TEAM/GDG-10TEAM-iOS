@@ -26,6 +26,7 @@ final class EditCell: UITableViewCell {
     weak var delegate: EditCellDelegate?
     
     func display(cellData: EditCellModel) {
+        self.selectionStyle = .none
         self.mainView.layer.cornerRadius = 10
         self.mainView.layer.masksToBounds = false
         self.mainView.clipsToBounds = true
