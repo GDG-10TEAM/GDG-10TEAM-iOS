@@ -39,7 +39,6 @@
 		AA35F20328678CB30068DA61 /* EditModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F20228678CB30068DA61 /* EditModel.swift */; };
 		AA35F205286795CE0068DA61 /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F204286795CE0068DA61 /* Edit.storyboard */; };
 		C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */; };
-		C3234B462867AC3A0029A645 /* img-splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = C3234B452867AC3A0029A645 /* img-splash.gif */; };
 		C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC082866EBCC0055B342 /* AppDelegate.swift */; };
 		C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */; };
 		C3B2FC0D2866EBCC0055B342 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */; };
@@ -89,7 +88,6 @@
 		AA35F20228678CB30068DA61 /* EditModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModel.swift; sourceTree = "<group>"; };
 		AA35F204286795CE0068DA61 /* Edit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskViewController.swift; sourceTree = "<group>"; };
-		C3234B452867AC3A0029A645 /* img-splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "img-splash.gif"; sourceTree = "<group>"; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 		C3B2FC1D2866EDF80055B342 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				C3234B452867AC3A0029A645 /* img-splash.gif */,
 				98AD08512867A20700FD4999 /* img-home.GIF */,
 				AA35F1E7286758960068DA61 /* Fonts */,
 				C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */,
@@ -384,7 +381,6 @@
 				AA35F1DC286716F70068DA61 /* CustomCalendarCell.xib in Resources */,
 				AA35F1F6286763750068DA61 /* CalendarDetail.storyboard in Resources */,
 				AA35F1F0286758C70068DA61 /* NEXT ART_SemiBold.otf in Resources */,
-				C3234B462867AC3A0029A645 /* img-splash.gif in Resources */,
 				98AD08522867A20700FD4999 /* img-home.GIF in Resources */,
 				AA35F1EF286758C50068DA61 /* NEXT ART_Regular.otf in Resources */,
 				C3B2FC122866EBCD0055B342 /* Assets.xcassets in Resources */,
