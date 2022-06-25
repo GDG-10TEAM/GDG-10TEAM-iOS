@@ -41,6 +41,8 @@
 		AA35F20A2867AB5E0068DA61 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F2092867AB5E0068DA61 /* SettingViewController.swift */; };
 		AA35F20C2867AB700068DA61 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA35F20B2867AB700068DA61 /* Setting.storyboard */; };
 		AA35F20E2867BAF00068DA61 /* TaskCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F20D2867BAF00068DA61 /* TaskCellDataSource.swift */; };
+		AA35F2102867C5290068DA61 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F20F2867C5290068DA61 /* MainRouter.swift */; };
+		AA35F2122867C56D0068DA61 /* MainDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F2112867C56D0068DA61 /* MainDTO.swift */; };
 		C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */; };
 		C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC082866EBCC0055B342 /* AppDelegate.swift */; };
 		C3B2FC0B2866EBCC0055B342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2FC0A2866EBCC0055B342 /* SceneDelegate.swift */; };
@@ -93,6 +95,8 @@
 		AA35F2092867AB5E0068DA61 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AA35F20B2867AB700068DA61 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		AA35F20D2867BAF00068DA61 /* TaskCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellDataSource.swift; sourceTree = "<group>"; };
+		AA35F20F2867C5290068DA61 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		AA35F2112867C56D0068DA61 /* MainDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDTO.swift; sourceTree = "<group>"; };
 		C3234B3F2867725A0029A645 /* CompletedTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskViewController.swift; sourceTree = "<group>"; };
 		C3B2FC052866EBCC0055B342 /* GDGiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDGiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2FC082866EBCC0055B342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -317,6 +321,8 @@
 			children = (
 				C3B2FC0C2866EBCC0055B342 /* MainViewController.swift */,
 				C3B2FC0E2866EBCC0055B342 /* Main.storyboard */,
+				AA35F20F2867C5290068DA61 /* MainRouter.swift */,
+				AA35F2112867C56D0068DA61 /* MainDTO.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -472,12 +478,14 @@
 				AA35F20328678CB30068DA61 /* EditModel.swift in Sources */,
 				AA35F1CD28670F6B0068DA61 /* Router.swift in Sources */,
 				AA35F1CF28670F810068DA61 /* Network.swift in Sources */,
+				AA35F2102867C5290068DA61 /* MainRouter.swift in Sources */,
 				AA35F1F42867636F0068DA61 /* CalendarDetailViewController.swift in Sources */,
 				C3B2FC092866EBCC0055B342 /* AppDelegate.swift in Sources */,
 				980638392866FBA500765310 /* CalendarViewController.swift in Sources */,
 				C3234B402867725A0029A645 /* CompletedTaskViewController.swift in Sources */,
 				AA35F1D9286716F70068DA61 /* CustomCalendarViewModel.swift in Sources */,
 				AA35F1F828676BE90068DA61 /* CalendarTaskModel.swift in Sources */,
+				AA35F2122867C56D0068DA61 /* MainDTO.swift in Sources */,
 				AA35F201286778CB0068DA61 /* EditCell.swift in Sources */,
 				AA35F1E1286732B60068DA61 /* TaskEditViewController.swift in Sources */,
 				AA35F1FB286775290068DA61 /* EditViewController.swift in Sources */,

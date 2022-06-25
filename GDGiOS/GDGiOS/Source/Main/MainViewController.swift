@@ -52,6 +52,13 @@ final class MainViewController: BaseViewController {
         super.viewDidLoad()
         initNaviBar()
         setupViews()
+        
+        DefaultNetworkService.instance.request(
+            router: MainRoutor.mainFetch
+        ) { [weak self] (response: [MainDTO]) in
+            print(response)
+        }
+
     }
     
     @objc func clickedTopTabBarBtn(_ sender: UIButton){

@@ -18,5 +18,5 @@ struct StoryBoard {
 
 
 struct EndPoint {
-    static let url = ""
+    static let url = "http://172.20.66.170:10000"
 }
