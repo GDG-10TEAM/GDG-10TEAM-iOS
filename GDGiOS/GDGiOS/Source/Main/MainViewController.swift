@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 final class MainViewController: BaseViewController {
 
     enum SectionType: Int {
@@ -31,17 +32,10 @@ final class MainViewController: BaseViewController {
     ]
     
     private var dummy: [SectionType: [MainDTO]] = [
-            .welcome: [],
+            .welcome: [.init(task_seq: 0, end_date: "", name: "", category_name: .washing)],
             .activeTasks: [],
             .doneTasks: []
         ]
-    
-    var currentIndex : Int {
-           guard let vc = viewControllers.first else { return 0 }
-           return viewControllers.firstIndex(of: vc) ?? 0
-       }
-    
-    private let viewControllers: [UIViewController] = [DetailViewController(), DetailViewController()]
     
     private let topMenuView = TopTabBarView(selectedIndex: 0)
     private var naviView = UIView()
@@ -55,12 +49,12 @@ final class MainViewController: BaseViewController {
             router: MainRoutor.mainFetch
         ) { [weak self] (response: [MainDTO]) in
             print(response)
-            let randomNum = Int.random(in: 1..<response.count)
+            let list = response.shuffled()
+            let randomNum = Int.random(in: 1..<list.count)
             
-            let front = response[0..<randomNum]
+            let front = list[0..<randomNum]
             self?.dummy[SectionType.activeTasks] = Array(front)
-            
-            let back = response[randomNum..<response.count]
+            let back = list[randomNum..<list.count]
             self?.dummy[SectionType.doneTasks] = Array(back)
             
             self?.tableView.reloadData()
@@ -124,12 +118,6 @@ final class MainViewController: BaseViewController {
             make.top.equalTo(topMenuView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
-        
-        let detailViewController = DetailViewController()
-        let pageViewController = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal)
-        pageViewController.setViewControllers([detailViewController], direction: .forward, animated: false)
-        pageViewController.dataSource = self
-//        pageViewController.delegate = self
     }
     
     private lazy var tableView: UITableView = {
@@ -213,33 +201,8 @@ extension MainViewController: UITableViewDataSource {
               let sectionData = dummy[sectionType]  {
             let photoVC = PhotoViewController()
             let data = sectionData[indexPath.row]
-            photoVC.taskTitle = data.title
+            photoVC.taskTitle = data.name
             self.navigationController?.pushViewController(photoVC, animated: true)
         }
     }
-}
-
-
-extension MainViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = viewControllers.firstIndex(of: viewController) else {return nil}
-        let previousIndex = index - 1
-        if previousIndex < 0 { return nil}
-        return viewControllers[previousIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-        guard let index = viewControllers.firstIndex(of: viewController) else {return nil}
-        let nextIndex = index + 1
-        if nextIndex == viewControllers.count { return nil}
-        return viewControllers[nextIndex]
-    }
-    
-    
-}
-
-extension MainViewController: UIPageViewControllerDelegate {
-    
-    
 }
