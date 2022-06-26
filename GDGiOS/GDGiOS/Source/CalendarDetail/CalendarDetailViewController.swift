@@ -107,8 +107,8 @@ final class CalendarDetailViewController: BaseViewController {
     
     private func configureView() {
         self.navigationController?.navigationBar.tintColor = .darkGray
-        self.title = "LOGO"
-        
+//        self.title = "LOGO"
+        self.navigationItem.title = "LOGO"
         self.dayFormatter.dateFormat = "MM.dd"
         self.calendarDetailTableView.register(TaskTableViewCell.self, forCellReuseIdentifier: TaskTableViewCell.identifier)
         let dayString = dayFormatter.string(from: self.currentDay)

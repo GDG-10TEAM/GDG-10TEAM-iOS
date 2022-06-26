@@ -70,6 +70,7 @@ final class MainViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.tintColor = .mainRed
     }
     
     override func viewWillDisappear(_ animated: Bool) {
