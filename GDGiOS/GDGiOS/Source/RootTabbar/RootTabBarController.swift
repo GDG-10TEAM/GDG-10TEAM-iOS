@@ -30,6 +30,15 @@ class RootTabBarController: UITabBarController {
         calenderNavigation.title = calendarTabbarItem.title
         calenderNavigation.tabBarItem = UITabBarItem(title: nil, image: calendarTabbarItem.image, tag: 1)
         
+        self.tabBar.barTintColor = .white
+        self.tabBar.isTranslucent = false
+        
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            
+            UITabBar.appearance().backgroundColor = UIColor.white
+        }
         self.viewControllers = [mainNavigation, calenderNavigation]
     }
 }
