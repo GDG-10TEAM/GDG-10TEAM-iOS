@@ -64,7 +64,7 @@ extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
         let data = dummy[indexPath.row]
-        cell.updateViews(title: data.title, progress: data.progress)
+        cell.updateViews(title: data.title, progress: data.progress, category: .cleaning)
         return cell
     }
 }
@@ -91,17 +91,21 @@ class TaskTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
-    func updateViews(title: String, progress: CGFloat) {
+    
+    func updateViews(title: String, progress: CGFloat, category: Category) {
         self.titleLabel.text = title
-        progressBar.updateView(value: progress)
+        progressBar.updateView(value: progress, color: category.color)
+        thumbnailImage.image = category.image
+        descriptionLabel.text = "\(Int.random(in: 0..<40))번째 실행중이예요:)"
+        timeLabel.text = "\(Int.random(in: 0..<12))시간 소요"
     }
     
     func display(cellModel: TaskCellModel) {
         self.titleLabel.text = cellModel.title
         progressBar.updateView(value: cellModel.progress, color: cellModel.calendarTaskModel.color)
-        
         thumbnailImage.image = cellModel.calendarTaskModel.image
+        descriptionLabel.text = "\(Int.random(in: 0..<40))번째 실행중이예요:)"
+        timeLabel.text = "\(Int.random(in: 0..<12))시간 소요"
     }
     
     private func setupLayout() {
@@ -213,3 +217,4 @@ extension NSLayoutConstraint {
         return NSLayoutConstraint(item: self.firstItem!, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
     }
 }
+

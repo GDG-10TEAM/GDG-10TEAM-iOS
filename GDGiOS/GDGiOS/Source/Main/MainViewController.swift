@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 final class MainViewController: BaseViewController {
 
     enum SectionType: Int {
@@ -30,27 +31,11 @@ final class MainViewController: BaseViewController {
         .doneTasks
     ]
     
-    private let dummy: [SectionType: [DummyModel]] = [
-        .welcome: [.init(title: "", progress: 0.0)],
-            .activeTasks: [
-                .init(title: "냉장고 정리", progress: 1.0),
-                .init(title: "재활용 쓰레기 버리기", progress: 0.1),
-                .init(title: "바닥 닦기", progress: 0.7),
-            ],
-            .doneTasks: [
-                .init(title: "창문 청소", progress: 0.3),
-                .init(title: "먼지 쓸기", progress: 0.5)
-            ]
-            
+    private var dummy: [SectionType: [MainDTO]] = [
+            .welcome: [.init(task_seq: 0, end_date: "", name: "", category_name: .washing)],
+            .activeTasks: [],
+            .doneTasks: []
         ]
-    
-    
-    var currentIndex : Int {
-           guard let vc = viewControllers.first else { return 0 }
-           return viewControllers.firstIndex(of: vc) ?? 0
-       }
-    
-    private let viewControllers: [UIViewController] = [DetailViewController(), DetailViewController()]
     
     private let topMenuView = TopTabBarView(selectedIndex: 0)
     private var naviView = UIView()
@@ -64,8 +49,16 @@ final class MainViewController: BaseViewController {
             router: MainRoutor.mainFetch
         ) { [weak self] (response: [MainDTO]) in
             print(response)
+            let list = response.shuffled()
+            let randomNum = Int.random(in: 1..<list.count)
+            
+            let front = list[0..<randomNum]
+            self?.dummy[SectionType.activeTasks] = Array(front)
+            let back = list[randomNum..<list.count]
+            self?.dummy[SectionType.doneTasks] = Array(back)
+            
+            self?.tableView.reloadData()
         }
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,8 +71,6 @@ final class MainViewController: BaseViewController {
     }
     
     @objc func touchedEditButton() {
-        print("move edit page")
-    
         EditViewController.editInitializer(viewController: self)
     }
     
@@ -128,12 +119,6 @@ final class MainViewController: BaseViewController {
             make.top.equalTo(topMenuView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
-        
-        let detailViewController = DetailViewController()
-        let pageViewController = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal)
-        pageViewController.setViewControllers([detailViewController], direction: .forward, animated: false)
-        pageViewController.dataSource = self
-//        pageViewController.delegate = self
     }
     
     private lazy var tableView: UITableView = {
@@ -202,7 +187,8 @@ extension MainViewController: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             let data = sectionData[indexPath.row]
-            cell.updateViews(title: data.title, progress: data.progress)
+            let progress = CGFloat.random(in: 0.0..<1.0)
+            cell.updateViews(title: data.name, progress: progress, category: data.category_name)
             return cell
         }
     }
@@ -216,33 +202,8 @@ extension MainViewController: UITableViewDataSource {
               let sectionData = dummy[sectionType]  {
             let photoVC = PhotoViewController()
             let data = sectionData[indexPath.row]
-            photoVC.taskTitle = data.title
+            photoVC.taskTitle = data.name
             self.navigationController?.pushViewController(photoVC, animated: true)
         }
     }
-}
-
-
-extension MainViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = viewControllers.firstIndex(of: viewController) else {return nil}
-        let previousIndex = index - 1
-        if previousIndex < 0 { return nil}
-        return viewControllers[previousIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-        guard let index = viewControllers.firstIndex(of: viewController) else {return nil}
-        let nextIndex = index + 1
-        if nextIndex == viewControllers.count { return nil}
-        return viewControllers[nextIndex]
-    }
-    
-    
-}
-
-extension MainViewController: UIPageViewControllerDelegate {
-    
-    
 }
