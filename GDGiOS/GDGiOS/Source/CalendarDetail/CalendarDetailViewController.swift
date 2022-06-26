@@ -51,6 +51,13 @@ final class CalendarDetailViewController: BaseViewController {
         self._makeMockData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let backBtn = UIBarButtonItem(image: UIImage(named: "icon_back"), style: .plain, target: self, action: #selector(backBarButtonTap))
+        backBtn.title = ""
+        self.navigationItem.leftBarButtonItem = backBtn
+    }
+    
     private func _makeMockData() {
         self._cellDataSource.onNext([TaskCellDataSource(
             items: [
@@ -145,5 +152,9 @@ final class CalendarDetailViewController: BaseViewController {
                 self?.cellDataSource = dataSource
             })
             .disposed(by: disposeBag)
+    }
+    
+    @objc func backBarButtonTap(_ sender: UIButton){
+        self.navigationController?.popViewController(animated: true)
     }
 }
