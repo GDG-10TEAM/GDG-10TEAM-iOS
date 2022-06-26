@@ -18,7 +18,9 @@ final class CalendarViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "LOGO"
+//        self.title = "LOGO"
+        self.navigationItem.title = "LOGO"
+        self.tabBarController?.tabBar.tintColor = .mainRed
     }
     
     private func configureView() {
