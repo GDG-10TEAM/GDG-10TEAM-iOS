@@ -14,13 +14,15 @@ class RootTabBarController: UITabBarController {
     override func viewDidLoad() {
          super.viewDidLoad()
         
+        tabBar.barTintColor = .white
+        tabBar.isTranslucent = false
+         
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: .main)
         let mainViewController = mainStoryBoard.instantiateViewController(withIdentifier: "MainViewController")
         let mainNavigation = UINavigationController(rootViewController: mainViewController)
         let homeTabbarItem = TabbarItem.home
         mainNavigation.title = homeTabbarItem.title
         mainNavigation.tabBarItem = UITabBarItem(title: nil, image: homeTabbarItem.image, tag: 0)
-        
         
         let calendarStoryboard = UIStoryboard(name: StoryBoard.calendar, bundle: .main)
         let calenderViewController = calendarStoryboard

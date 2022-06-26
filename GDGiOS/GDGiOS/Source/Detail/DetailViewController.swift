@@ -161,7 +161,7 @@ extension DetailViewController: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             let data = sectionData[indexPath.row]
-            cell.updateViews(title: data.title, progress: data.progress)
+            cell.updateViews(title: data.title, progress: data.progress, category: .washing)
             return cell
         }
     }
