@@ -30,20 +30,11 @@ final class MainViewController: BaseViewController {
         .doneTasks
     ]
     
-    private let dummy: [SectionType: [DummyModel]] = [
-        .welcome: [.init(title: "", progress: 0.0)],
-            .activeTasks: [
-                .init(title: "냉장고 정리", progress: 1.0),
-                .init(title: "재활용 쓰레기 버리기", progress: 0.1),
-                .init(title: "바닥 닦기", progress: 0.7),
-            ],
-            .doneTasks: [
-                .init(title: "창문 청소", progress: 0.3),
-                .init(title: "먼지 쓸기", progress: 0.5)
-            ]
-            
+    private var dummy: [SectionType: [MainDTO]] = [
+            .welcome: [],
+            .activeTasks: [],
+            .doneTasks: []
         ]
-    
     
     var currentIndex : Int {
            guard let vc = viewControllers.first else { return 0 }
@@ -64,13 +55,19 @@ final class MainViewController: BaseViewController {
             router: MainRoutor.mainFetch
         ) { [weak self] (response: [MainDTO]) in
             print(response)
+            let randomNum = Int.random(in: 1..<response.count)
+            
+            let front = response[0..<randomNum]
+            self?.dummy[SectionType.activeTasks] = Array(front)
+            
+            let back = response[randomNum..<response.count]
+            self?.dummy[SectionType.doneTasks] = Array(back)
+            
+            self?.tableView.reloadData()
         }
-
     }
     
     @objc func touchedEditButton() {
-        print("move edit page")
-    
         EditViewController.editInitializer(viewController: self)
     }
     
@@ -193,7 +190,8 @@ extension MainViewController: UITableViewDataSource {
             }
             cell.selectionStyle = .none
             let data = sectionData[indexPath.row]
-            cell.updateViews(title: data.title, progress: data.progress)
+            let progress = CGFloat.random(in: 0.0..<1.0)
+            cell.updateViews(title: data.name, progress: progress, category: data.category_name)
             return cell
         }
     }
