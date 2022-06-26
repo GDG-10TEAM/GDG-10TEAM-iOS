@@ -19,7 +19,7 @@ class RootTabBarController: UITabBarController {
         let mainNavigation = UINavigationController(rootViewController: mainViewController)
         let homeTabbarItem = TabbarItem.home
         mainNavigation.title = homeTabbarItem.title
-        mainNavigation.tabBarItem = UITabBarItem(title: nil, image: homeTabbarItem.image, tag: 0)
+        mainNavigation.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icon_home"), tag: 0)
         
         
         let calendarStoryboard = UIStoryboard(name: StoryBoard.calendar, bundle: .main)
@@ -28,7 +28,7 @@ class RootTabBarController: UITabBarController {
         let calenderNavigation = UINavigationController(rootViewController: calenderViewController)
         let calendarTabbarItem = TabbarItem.calendar
         calenderNavigation.title = calendarTabbarItem.title
-        calenderNavigation.tabBarItem = UITabBarItem(title: nil, image: calendarTabbarItem.image, tag: 1)
+        calenderNavigation.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icon_calender"), tag: 1)
         
         self.viewControllers = [mainNavigation, calenderNavigation]
     }
