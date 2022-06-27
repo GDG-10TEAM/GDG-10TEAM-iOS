@@ -21,7 +21,6 @@ protocol Router {
 extension Router {
     var url: URL {
         let urlString = EndPoint.url + path
-        print("\n🟡 URL: \(urlString)\n🔴 Method: \(method.rawValue)\n")
         return (try? urlString.asURL())!
     }
     
